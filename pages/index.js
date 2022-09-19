@@ -19,7 +19,7 @@ export default function Home({ allPostsData }) {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <h1 className="text-3xl font-bold underline">Hello world!</h1>
+      <h1 className="text-3xl font-bold underline">Snippets</h1>
 
       <main className="flex flex-col items-center justify-center flex-grow px-0 py-20">
         <h1 className="title">
