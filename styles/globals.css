@@ -1,3 +1,38 @@
+@font-face {
+  font-family: Whatnot;
+  src: url(https://codingstuff-github.github.io/fonts/Whatnot.woff);
+}
+@font-face {
+  font-family: AgentC;
+  src: url(https://codingstuff-github.github.io/fonts/AgentC.woff);
+}
+
+body {
+  font-family: AgentC !important;
+  background: url(../public/background.webp) no-repeat;
+  background-size: 100%;
+}
 section {
+  background-color: aliceblue;
+  margin: 3rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+h1 {
+  font-family: Whatnot !important;
+  color: #d54d7b;
+  font-size: 80px;
+  line-height: 80px;
   margin: 16px;
+  font-weight: normal;
+  text-align: center;
+  text-shadow: 0 1px 1px #fff;
+}
+section div {
+  padding: 16px;
+}
+span {
+  padding: 4px;
 }
