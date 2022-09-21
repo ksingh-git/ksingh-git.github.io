@@ -9,8 +9,8 @@
 
 body {
   font-family: AgentC !important;
-  background: url(../public/background.webp) no-repeat;
-  background-size: 100%;
+  background: url(../public/background.webp) no-repeat fixed;
+  background-size: 100% 100%;
 }
 section {
   background-color: aliceblue;
