@@ -1,10 +1,10 @@
 @font-face {
   font-family: Whatnot;
-  src: url(https://codingstuff-github.github.io/fonts/Whatnot.woff);
+  src: url(../styles/fonts/Whatnot.woff);
 }
 @font-face {
   font-family: AgentC;
-  src: url(https://codingstuff-github.github.io/fonts/AgentC.woff);
+  src: url(../styles/fonts/AgentC.woff);
 }
 
 body {
@@ -36,3 +36,10 @@ section div {
 span {
   padding: 4px;
 }
+
+code {
+  background-color: transparent !important;
+}
+@tailwind base;
+@tailwind components;
+@tailwind utilities;

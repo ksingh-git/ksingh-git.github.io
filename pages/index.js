@@ -21,6 +21,7 @@ export default function Home({ allPostsData }) {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <section>
+        <h1 className="text-3xl font-bold underline">Hello world!</h1>
         <h1>Snippets</h1>
         <ul>
           {allPostsData.map(({ id, date, title }) => (

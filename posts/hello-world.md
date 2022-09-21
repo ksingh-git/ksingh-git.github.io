@@ -11,10 +11,7 @@ date: "2020-03-01"
 
 Hello World is the best way to start a web application without having to worry about the configuration settings that are required for the application to render. Here are some examples of how to configure the application without having to worry about the configuration settings that are required for the application to render: 1 - render the application without having to worry about the configuration settings that are required for the application to Rendering
 
-```json
-{
-  "firstName": "John",
-  "lastName": "Smith",
-  "age": 25
-}
+```python
+def hello_application():
+  print("Hello World!")
 ```
