@@ -34,7 +34,7 @@ export default function Post({ postData }) {
       <Head>
         <title>{postData.title}</title>
       </Head>
-      <section className="p-6 prose prose-slate prose-xl md:prose-2xl max-w-none dark:prose-invert prose-h2:underline prose-h3:underline">
+      <section className="text-justify p-36 mx-36 prose prose-slate prose-xl md:prose-2xl max-w-none dark:prose-invert prose-h2:underline prose-h3:underline">
         <span>
           <Date dateString={postData.date} />
         </span>

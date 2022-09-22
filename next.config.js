@@ -6,4 +6,7 @@ module.exports = {
   images: {
     unoptimized: true,
   },
+  devIndicators: {
+    buildActivity: false,
+  },
 };
