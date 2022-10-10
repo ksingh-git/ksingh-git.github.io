@@ -13,7 +13,6 @@ body {
   background-size: 100% 100%;
 }
 section {
-  background-color: aliceblue;
   margin: 3rem;
   display: flex;
   flex-direction: column;
@@ -36,7 +35,6 @@ section div {
 span {
   padding: 4px;
 }
-
 code {
   background-color: transparent !important;
 }
