@@ -10,6 +10,7 @@ import {
   faJs,
   faHtml5,
 } from "@fortawesome/free-brands-svg-icons";
+import ThemeModeSvgComponent from "../components/theme_mode";
 
 export async function getStaticProps() {
   const allPostsData = getSortedPostsData();
@@ -28,11 +29,11 @@ export default function Home({ allPostsData }) {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <section className="bg-white dark:bg-gray-900 cursor-default">
-        <div className="py-8 px-4 mx-auto max-w-screen-xl lg:py-16 lg:px-6">
+        <div className="relative py-8 px-4 mx-auto max-w-screen-xl lg:py-16 lg:px-6">
           <h2 className="mx-auto max-w-screen-sm text-center mb-4 text-7xl underline tracking-tight font-extrabold text-gray-900 dark:text-white">
             Snippets
           </h2>
-
+          <ThemeModeSvgComponent />
           <div className="grid gap-8 lg:grid-cols-2">
             {allPostsData.map(({ id, date, title, description, language }) => (
               <div
