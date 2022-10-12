@@ -29,7 +29,7 @@ export default function Home({ allPostsData }) {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <section className="bg-white dark:bg-gray-900 cursor-default">
-        <div className="relative py-8 px-4 mx-auto max-w-screen-xl lg:py-16 lg:px-6">
+        <div className="relative py-8 px-4 mx-auto my-8 max-w-screen-xl lg:py-16 lg:px-6">
           <h2 className="mx-auto max-w-screen-sm text-center mb-4 text-7xl underline tracking-tight font-extrabold text-gray-900 dark:text-white">
             Snippets
           </h2>
