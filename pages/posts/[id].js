@@ -43,7 +43,9 @@ export default function Post({ postData }) {
               <span>{"<"} Back to Home</span>
             </span>
           </Link>
-          <ThemeModeSvgComponent />
+          <div className="cursor-pointer flex absolute top-0 right-0 p-2">
+            <ThemeModeSvgComponent />
+          </div>
           <span>
             <Date dateString={postData.date} />
           </span>

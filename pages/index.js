@@ -33,12 +33,14 @@ export default function Home({ allPostsData }) {
           <h2 className="mx-auto max-w-screen-sm text-center mb-4 text-7xl underline tracking-tight font-extrabold text-gray-900 dark:text-white">
             Snippets
           </h2>
-          <ThemeModeSvgComponent />
+          <div className="cursor-pointer flex absolute top-0 right-0">
+            <ThemeModeSvgComponent />
+          </div>
           <div className="grid gap-8 lg:grid-cols-2">
             {allPostsData.map(({ id, date, title, description, language }) => (
               <div
                 key={id}
-                className="transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-105 duration-300"
+                className="p-4 transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-105 duration-300"
               >
                 <article className="flex flex-col h-full p-6 bg-white rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700">
                   <div className="flex justify-between items-center mb-5 text-gray-500">

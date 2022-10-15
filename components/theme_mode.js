@@ -29,9 +29,9 @@ function ThemeModeSvgComponent(props) {
         }}
       >
         {theme === "light" ? (
-          <DarkModeSvgComponent className="cursor-pointer flex absolute top-0 right-0" />
+          <DarkModeSvgComponent />
         ) : (
-          <LightmodeSvgComponent className="cursor-pointer flex absolute top-0 right-0" />
+          <LightmodeSvgComponent />
         )}
       </button>
     </>
