@@ -38,12 +38,11 @@ export default function Post({ postData }) {
       </Head>
       <section className="bg-white dark:bg-gray-900">
         <section className="relative text-justify p-36 mx-36 prose prose-slate prose-xl md:prose-2xl max-w-none dark:prose-invert prose-h2:underline prose-h3:underline">
-          <Link href={`/`}>
-            <span className="cursor-pointer flex absolute top-0 left-0">
+          <div className="p-8 cursor-pointer flex justify-between absolute top-0 right-0 w-full">
+            {" "}
+            <Link href={`/`}>
               <span>{"<"} Back to Home</span>
-            </span>
-          </Link>
-          <div className="cursor-pointer flex absolute top-0 right-0 p-2">
+            </Link>
             <ThemeModeSvgComponent />
           </div>
           <span>

@@ -11,6 +11,7 @@ import {
   faHtml5,
 } from "@fortawesome/free-brands-svg-icons";
 import ThemeModeSvgComponent from "../components/theme_mode";
+import { useEffect } from "react";
 
 export async function getStaticProps() {
   const allPostsData = getSortedPostsData();
@@ -22,6 +23,12 @@ export async function getStaticProps() {
 }
 
 export default function Home({ allPostsData }) {
+  useEffect(() => {
+    if (!localStorage.getItem("theme")) {
+      localStorage.setItem("theme", "light");
+    }
+  }, []);
+
   return (
     <Layout>
       <Head>
@@ -33,7 +40,7 @@ export default function Home({ allPostsData }) {
           <h2 className="mx-auto max-w-screen-sm text-center mb-4 text-7xl underline tracking-tight font-extrabold text-gray-900 dark:text-white">
             Snippets
           </h2>
-          <div className="cursor-pointer flex absolute top-0 right-0">
+          <div className=" p-8 cursor-pointer flex absolute top-0 right-0">
             <ThemeModeSvgComponent />
           </div>
           <div className="grid gap-8 lg:grid-cols-2">
