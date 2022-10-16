@@ -4,6 +4,7 @@ date: "2020-03-01"
 description: "
 Hello World is the best way to start a web application without having to worry about the configuration settings that are required for the application to render. Here are some examples of how to configure the application without having to worry about the configuration settings that are required for the application to render: 1 - render the application without having to worry about the configuration settings that are required for the application to Rendering"
 language: "Javascript"
+categories : ["npm", "hello", "command"]
 ---
 
 # Hello World
