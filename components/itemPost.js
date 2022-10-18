@@ -49,9 +49,11 @@ export default function ItemPost({
         </p>
         <div className="flex">
           {categories.map((category) => (
-            <span className="p-2 cursor-pointer">
+            <span className="p-2">
               <Link key={category} href={`/category/${category}`}>
-                <h6>#{category}</h6>
+                <span class="bg-gray-100 text-gray-800 text-s font-semibold mr-2 px-2.5 py-0.5 rounded dark:bg-gray-700 dark:text-gray-300">
+                  #{category}
+                </span>
               </Link>
             </span>
           ))}
