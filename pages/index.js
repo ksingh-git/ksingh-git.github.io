@@ -27,6 +27,7 @@ export default function Home({ allPostsData, allCategories }) {
   }, []);
   useEffect(() => {
     console.log(selectedCategory);
+    console.log(allPostsData);
   }, [selectedCategory]);
   return (
     <Layout>
@@ -57,7 +58,7 @@ export default function Home({ allPostsData, allCategories }) {
               </button>
             </li>
             {allCategories.map((category) => (
-              <li className="mr-2">
+              <li className="mr-2" key={category}>
                 <button
                   onClick={() => {
                     setSelectedCategory(category);
@@ -74,6 +75,7 @@ export default function Home({ allPostsData, allCategories }) {
             {allPostsData.map(
               ({ id, date, title, description, language, categories }) => (
                 <ItemPost
+                  key={id}
                   id={id}
                   date={date}
                   title={title}

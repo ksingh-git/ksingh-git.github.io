@@ -49,9 +49,9 @@ export default function ItemPost({
         </p>
         <div className="flex">
           {categories.map((category) => (
-            <span className="p-2">
+            <span className="p-2" key={category}>
               <Link key={category} href={`/category/${category}`}>
-                <span class="bg-gray-100 text-gray-800 text-s font-semibold mr-2 px-2.5 py-0.5 rounded dark:bg-gray-700 dark:text-gray-300">
+                <span className="bg-gray-100 text-gray-800 text-s font-semibold mr-2 px-2.5 py-0.5 rounded dark:bg-gray-700 dark:text-gray-300">
                   #{category}
                 </span>
               </Link>
