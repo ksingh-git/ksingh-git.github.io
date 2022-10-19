@@ -32,7 +32,8 @@ h1 {
 span {
   padding: 4px;
 }
-code {
+
+pre code {
   background-color: transparent !important;
 }
 @tailwind base;

@@ -2,11 +2,12 @@ import Layout from "../../components/layout";
 import { getAllPostIds, getPostData } from "../../lib/posts";
 import Head from "next/head";
 import Date from "../../components/date";
-import hljs from "highlight.js";
+import hljs from "highlight.js/lib/common";
 import "highlight.js/styles/github-dark.css";
 import { useEffect } from "react";
 import Link from "next/link";
 import ThemeModeSvgComponent from "../../components/theme_mode";
+import MarkDownWrapper from "../../components/markdownWrapper";
 
 export async function getStaticProps({ params }) {
   const postData = await getPostData(params.id);
@@ -37,7 +38,8 @@ export default function Post({ postData }) {
         <title>{postData.title}</title>
       </Head>
       <section className="bg-white dark:bg-gray-900">
-        <section className="relative text-justify p-36 mx-36 prose prose-slate prose-xl md:prose-2xl max-w-none dark:prose-invert prose-h2:underline prose-h3:underline">
+        <MarkDownWrapper>
+          {" "}
           <div className="p-8 cursor-pointer flex justify-between absolute top-0 right-0 w-full">
             {" "}
             <Link href={`/`}>
@@ -50,7 +52,7 @@ export default function Post({ postData }) {
           </span>
           <br />
           <div dangerouslySetInnerHTML={{ __html: postData.contentHtml }} />
-        </section>
+        </MarkDownWrapper>
       </section>
     </Layout>
   );
