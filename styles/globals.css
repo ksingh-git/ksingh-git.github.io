@@ -32,10 +32,16 @@ h1 {
 span {
   padding: 4px;
 }
-
 pre code {
   background-color: transparent !important;
 }
+code {
+  background-color: #f1f1f1;
+  border-radius: 0.2em;
+  padding: 0.2em;
+  display: block;
+}
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
