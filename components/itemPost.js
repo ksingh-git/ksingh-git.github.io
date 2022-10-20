@@ -19,13 +19,13 @@ export default function ItemPost({
   return (
     <div
       key={id}
-      className="p-4 transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-105 duration-300"
+      className="p-4 transition delay-150 duration-300 ease-in-out hover:-translate-y-1 hover:scale-105"
     >
-      <article className="flex flex-col h-full p-6 bg-white rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700">
-        <div className="flex justify-between items-center mb-5 text-gray-500">
-          <span className="bg-primary-100 text-primary-800 text-xl font-medium inline-flex justify-center items-center px-2.5 py-0.5 rounded dark:bg-primary-200 dark:text-primary-800">
+      <article className="flex h-full flex-col rounded-lg border border-gray-200 bg-white p-6 shadow-md dark:border-gray-700 dark:bg-gray-800">
+        <div className="mb-5 flex items-center justify-between text-gray-500">
+          <span className="bg-primary-100 text-primary-800 dark:bg-primary-200 dark:text-primary-800 inline-flex items-center justify-center rounded px-2.5 py-0.5 text-xl font-medium">
             <span
-              className="mr-1 mb-1 w-6 h-6"
+              className="mr-1 mb-1 h-6 w-6"
               fill="currentColor"
               viewBox="0 0 20 20"
               xmlns="http://www.w3.org/2000/svg"
@@ -40,18 +40,18 @@ export default function ItemPost({
           </span>
         </div>
         <Link href={`/posts/${id}`}>
-          <h2 className="hover:underline cursor-pointer mb-2 text-4xl font-bold tracking-tight text-gray-900 dark:text-white">
+          <h2 className="mb-2 cursor-pointer text-4xl font-bold tracking-tight text-gray-900 hover:underline dark:text-white">
             {title}
           </h2>
         </Link>
-        <p className="grow mb-5 text-xl font-light text-gray-500 dark:text-gray-400">
+        <p className="mb-5 grow text-xl font-light text-gray-500 dark:text-gray-400">
           {description}
         </p>
         <div className="flex">
           {categories.map((category) => (
             <span className="p-2" key={category}>
               <Link key={category} href={`/category/${category}`}>
-                <span className="bg-gray-100 text-gray-800 text-s font-semibold mr-2 px-2.5 py-0.5 rounded dark:bg-gray-700 dark:text-gray-300">
+                <span className="text-s mr-2 rounded bg-gray-100 px-2.5 py-0.5 font-semibold text-gray-800 dark:bg-gray-700 dark:text-gray-300">
                   #{category}
                 </span>
               </Link>

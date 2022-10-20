@@ -1,8 +1,8 @@
 export default function MarkDownWrapper({ children }) {
   return (
     <section
-      className="relative text-justify p-36 mx-36 prose prose-slate prose-xl md:prose-2xl 
-      max-w-none dark:prose-invert prose-h2:underline prose-h3:underline"
+      className="prose prose-xl prose-slate relative mx-36 max-w-none p-36 text-justify 
+      prose-h2:underline prose-h3:underline dark:prose-invert md:prose-2xl"
     >
       {children}
     </section>

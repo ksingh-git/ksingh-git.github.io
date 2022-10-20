@@ -40,7 +40,7 @@ export default function Post({ postData }) {
       <section className="bg-white dark:bg-gray-900">
         <MarkDownWrapper>
           {" "}
-          <div className="p-8 cursor-pointer flex justify-between absolute top-0 right-0 w-full">
+          <div className="absolute top-0 right-0 flex w-full cursor-pointer justify-between p-8">
             {" "}
             <Link href={`/`}>
               <span>{"<"} Back to Home</span>

@@ -35,15 +35,15 @@ export default function Home({ allPostsData, allCategories }) {
         <title>Snippets</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <section className="bg-white dark:bg-gray-900 cursor-default">
-        <div className="relative py-8 px-4 mx-auto my-8 max-w-screen-xl lg:py-16 lg:px-6">
-          <h1 className="mx-auto max-w-screen-sm text-center mb-4 text-7xl underline tracking-tight font-extrabold text-gray-900 dark:text-white">
+      <section className="cursor-default bg-white dark:bg-gray-900">
+        <div className="relative mx-auto my-8 max-w-screen-xl py-8 px-4 lg:py-16 lg:px-6">
+          <h1 className="mx-auto mb-4 max-w-screen-sm text-center text-7xl font-extrabold tracking-tight text-gray-900 underline dark:text-white">
             Snippets
           </h1>
-          <div className=" p-8 cursor-pointer flex absolute top-0 right-0">
+          <div className=" absolute top-0 right-0 flex cursor-pointer p-8">
             <ThemeModeSvgComponent />
           </div>
-          <ul className="flex flex-wrap justify-center my-8 font-medium text-center text-gray-500 dark:text-gray-400">
+          <ul className="my-8 flex flex-wrap justify-center text-center font-medium text-gray-500 dark:text-gray-400">
             {" "}
             <li className="mr-2">
               <button
@@ -51,7 +51,7 @@ export default function Home({ allPostsData, allCategories }) {
                   setSelectedCategory("");
                 }}
                 type="button"
-                className="py-2.5 px-5 mr-2 mb-2 text-lg font-medium text-gray-900 focus:outline-none bg-white rounded-full border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:ring-gray-400 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700"
+                className="mr-2 mb-2 rounded-full border border-gray-200 bg-white py-2.5 px-5 text-lg font-medium text-gray-900 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:outline-none focus:ring-4 focus:ring-gray-400 dark:border-gray-600 dark:bg-gray-800 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white dark:focus:ring-gray-700"
               >
                 ALL
               </button>
@@ -63,7 +63,7 @@ export default function Home({ allPostsData, allCategories }) {
                     setSelectedCategory(category);
                   }}
                   type="button"
-                  className="py-2.5 px-5 mr-2 mb-2 text-lg font-medium text-gray-900 focus:outline-none bg-white rounded-full border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:ring-gray-400 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700"
+                  className="mr-2 mb-2 rounded-full border border-gray-200 bg-white py-2.5 px-5 text-lg font-medium text-gray-900 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:outline-none focus:ring-4 focus:ring-gray-400 dark:border-gray-600 dark:bg-gray-800 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white dark:focus:ring-gray-700"
                 >
                   {category}
                 </button>
