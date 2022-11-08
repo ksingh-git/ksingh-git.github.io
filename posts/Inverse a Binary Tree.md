@@ -6,8 +6,6 @@ language: "Python"
 categories: ["python", "tree"]
 ---
 
-# Inverse a Binary Tree
-
 ```python
 class TreeNode:
     def __init__(self, val=0, left=None, right=None):

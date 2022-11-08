@@ -1,12 +1,12 @@
 ---
-title: "Sum of Subsets"
-date: "2022-08-15"
-description: "Subset sum problem is to find subset of elements that are selected from a given set whose sum adds up to a given number K. "
+title: "Multistage Graph (Shortest Path)"
+date: "2022-10-31"
+description: "A Multistage graph is a directed, weighted graph in which the nodes can be divided into a set of stages such that all edges are from a stage to next stage only "
 language: "Python"
-categories: ["python", "backtracking"]
+categories: ["python", "graph", "shortest path"]
 ---
 
-Subset sum problem is to find subset of elements that are selected from a given set whose sum adds up to a given number K.
+A Multistage graph is a directed, weighted graph in which the nodes can be divided into a set of stages such that all edges are from a stage to next stage only. (In other words there is no edge between vertices of same stage and from a vertex of current stage to previous stage).
 
 ```python
 from pprint import pprint

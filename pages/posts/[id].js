@@ -51,6 +51,7 @@ export default function Post({ postData }) {
             <Date dateString={postData.date} />
           </span>
           <br />
+          <h1>{postData.title}</h1>
           <div dangerouslySetInnerHTML={{ __html: postData.contentHtml }} />
         </MarkDownWrapper>
       </section>
