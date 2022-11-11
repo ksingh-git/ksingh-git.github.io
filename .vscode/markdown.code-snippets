@@ -1,0 +1,17 @@
+{
+  "New Blog": {
+    "scope": "markdown",
+    "prefix": "newblog",
+    "body": [
+      "---",
+      "title: \"$TM_FILENAME_BASE\"",
+      "date: \"$CURRENT_YEAR-$CURRENT_MONTH-$CURRENT_DATE\"",
+      "description: \"Add description here\"",
+      "language: \"${1:lang}\"",
+      "categories: [\"${1:lang}\", \"tag2\"]",
+      "---",
+      "$0"
+    ],
+    "description": "Default Post in Blog"
+  }
+}
