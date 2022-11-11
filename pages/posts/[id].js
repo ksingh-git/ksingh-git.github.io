@@ -29,6 +29,9 @@ export async function getStaticPaths() {
 
 export default function Post({ postData }) {
   useEffect(() => {
+    hljs.configure({
+      languages: ["python"],
+    });
     hljs.highlightAll();
   }, []);
 
