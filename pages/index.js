@@ -19,29 +19,52 @@ export async function getStaticProps() {
 
 export default function Home({ allPostsData, allCategories }) {
   const [selectedCategory, setSelectedCategory] = useState("");
+  const [searchTerm, setSearchTerm] = useState("");
   useEffect(() => {
     if (!localStorage.getItem("theme")) {
       localStorage.setItem("theme", "light");
     }
-    console.log("Theme: " + localStorage.getItem("theme"));
   }, []);
-  useEffect(() => {
-    console.log(selectedCategory);
-    console.log(allPostsData);
-  }, [selectedCategory]);
   return (
     <Layout>
       <Head>
         <title>Snippets</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <section className="cursor-default bg-white dark:bg-gray-900">
-        <div className="relative mx-auto my-8 max-w-screen-xl py-8 px-4 lg:py-16 lg:px-6">
-          <h1 className="mx-auto mb-4 max-w-screen-sm text-center text-7xl font-extrabold tracking-tight text-gray-900 underline dark:text-white">
+      <section className="relative cursor-default bg-white dark:bg-gray-900">
+        <div className=" mx-auto my-8 max-w-screen-xl py-8 px-4 lg:py-16 lg:px-6">
+          <h1
+            className="mx-auto mb-4 max-w-screen-sm text-center text-7xl font-extrabold tracking-tight
+           text-gray-900 underline dark:text-white"
+          >
             Snippets
           </h1>
-          <div className=" absolute top-0 right-0 flex cursor-pointer p-8">
-            <ThemeModeSvgComponent />
+          {/* Search Bar - mobile and tab screens */}
+          <input
+            onChange={(e) => {
+              setSearchTerm(e.target.value);
+            }}
+            type="search"
+            class="text-md mr-4 block w-full rounded-lg border border-gray-300 bg-gray-50 p-4
+             text-gray-900 focus:border-blue-500 focus:ring-blue-500 dark:border-gray-600
+              dark:bg-gray-700 dark:text-white dark:placeholder-gray-400 dark:focus:border-blue-500
+               dark:focus:ring-blue-500 md:hidden"
+            placeholder="Search"
+            required=""
+          />
+          <div className="absolute top-0 right-0 flex p-8">
+            {/* Search Bar - large screens */}
+            <input
+              onChange={(e) => {
+                setSearchTerm(e.target.value);
+              }}
+              type="search"
+              class="text-md mr-4 hidden w-full rounded-lg border border-gray-300 bg-gray-50 p-4 text-gray-900 focus:border-blue-500 focus:ring-blue-500 dark:border-gray-600 dark:bg-gray-700 dark:text-white
+               dark:placeholder-gray-400 dark:focus:border-blue-500 dark:focus:ring-blue-500 md:block"
+              placeholder="Search"
+              required=""
+            />
+            <ThemeModeSvgComponent className="cursor-pointer" />
           </div>
           <ul className="my-8 flex flex-wrap justify-center text-center font-medium text-gray-500 dark:text-gray-400">
             {" "}
@@ -70,11 +93,18 @@ export default function Home({ allPostsData, allCategories }) {
               </li>
             ))}
           </ul>
-          <div className="grid gap-8 lg:grid-cols-2">
+          <div className="min-w-200 grid gap-8 lg:grid-cols-2">
             {allPostsData.map(
               ({ id, date, title, description, language, categories }) => {
-                return selectedCategory === "" ||
-                  categories.includes(selectedCategory) ? (
+                return (selectedCategory === "" ||
+                  categories.includes(selectedCategory)) &&
+                  (searchTerm === "" ||
+                    searchTermCheck(searchTerm, [
+                      title,
+                      description,
+                      language,
+                      categories.join(" "),
+                    ])) ? (
                   <ItemPost
                     key={id}
                     id={id}
@@ -92,4 +122,13 @@ export default function Home({ allPostsData, allCategories }) {
       </section>
     </Layout>
   );
+}
+
+function searchTermCheck(searchTerm, includeList) {
+  for (const element of includeList) {
+    if (element.toLowerCase().includes(searchTerm.toLowerCase())) {
+      return true;
+    }
+  }
+  return false;
 }
