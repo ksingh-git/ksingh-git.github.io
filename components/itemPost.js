@@ -8,6 +8,7 @@ import {
   faHtml5,
   faCss3Alt,
   faReact,
+  faAws,
 } from "@fortawesome/free-brands-svg-icons";
 
 export default function ItemPost({
@@ -34,8 +35,6 @@ export default function ItemPost({
             >
               {getLanguageIcon({ language })}
             </span>
-
-            {language}
           </span>
           <span className="text-xl">
             <Date dateString={date} />
@@ -67,6 +66,8 @@ export default function ItemPost({
     switch (language.toLowerCase()) {
       case "python":
         return <FontAwesomeIcon icon={faPython} />;
+      case "aws":
+        return <FontAwesomeIcon icon={faAws} />;
       case "javascript":
         return <FontAwesomeIcon icon={faJs} />;
       case "html":
