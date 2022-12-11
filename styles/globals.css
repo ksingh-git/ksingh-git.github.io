@@ -11,37 +11,19 @@ body {
   font-family: AgentC;
   background: url(../public/background.webp) no-repeat fixed;
   background-size: 100% 100%;
-  padding: 32px;
 }
-section {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
+
 h1 {
   font-family: Whatnot !important;
-  color: #d54d7b;
-  font-size: 80px;
-  line-height: 80px;
-  margin: 16px;
-  font-weight: normal;
-  text-align: center;
-  text-shadow: 0 1px 1px #fff;
-}
-span {
-  padding: 4px;
 }
 pre code {
   background-color: transparent !important;
-}
-code {
-  background-color: #f1f1f1;
-  border-radius: 0.2em;
-  padding: 0.2em;
-  display: block;
 }
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* * {
+  border: gray 1px solid;
+} */
