@@ -74,26 +74,20 @@ export default function Home({ allPostsData, allCategories }) {
             </div>
             {/* Categories */}
             <ul className="my-8 flex flex-wrap justify-center text-center font-medium text-gray-500 dark:text-gray-400">
-              {" "}
-              <li className="mr-2">
-                <button
-                  onClick={() => {
-                    setSelectedCategory("");
-                  }}
-                  type="button"
-                  className="mr-2 mb-2 rounded-full border border-gray-200 bg-white py-2.5 px-5 text-lg font-medium text-gray-900 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:outline-none focus:ring-4 focus:ring-gray-400 dark:border-gray-600 dark:bg-gray-800 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white dark:focus:ring-gray-700"
-                >
-                  ALL
-                </button>
-              </li>
               {allCategories.map((category) => (
                 <li className="mr-2" key={category}>
                   <button
                     onClick={() => {
-                      setSelectedCategory(category);
+                      selectedCategory !== category
+                        ? setSelectedCategory(category)
+                        : setSelectedCategory("");
                     }}
                     type="button"
-                    className="mr-2 mb-2 rounded-full border border-gray-200 bg-white py-2.5 px-5 text-lg font-medium text-gray-900 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:outline-none focus:ring-4 focus:ring-gray-400 dark:border-gray-600 dark:bg-gray-800 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white dark:focus:ring-gray-700"
+                    className={`mr-2 mb-2 rounded-full border border-gray-200 bg-white py-2.5 px-5 text-lg font-medium text-gray-900 hover:bg-gray-100 hover:text-blue-700 ${
+                      selectedCategory == category
+                        ? "z-10 outline-none ring-4 ring-gray-400 dark:ring-gray-700"
+                        : ""
+                    }  dark:border-gray-600 dark:bg-gray-800 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white `}
                   >
                     {category}
                   </button>
