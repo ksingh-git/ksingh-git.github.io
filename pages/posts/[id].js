@@ -22,14 +22,18 @@ export default function Post({ postData }) {
       <Head>
         <title>{postData.title}</title>
       </Head>
-      <section className="bg-white dark:bg-gray-900 md:m-8">
+      <section className="min-w-min bg-white dark:bg-gray-900 md:m-8">
         <div>
           <div className="flex w-full cursor-pointer justify-between md:p-8">
             {" "}
             <Link href={`/`}>
-              <span>{"<"} Back to Home</span>
+              <span className="p-2 text-2xl text-black dark:text-white md:pl-8">
+                {"<"} Back to Home
+              </span>
             </Link>
-            <ThemeModeSvgComponent />
+            <div className="p-2 md:pl-8">
+              <ThemeModeSvgComponent />
+            </div>
           </div>
           <div className="flex w-full flex-col items-center p-8 md:items-center">
             <MarkDownWrapper>
