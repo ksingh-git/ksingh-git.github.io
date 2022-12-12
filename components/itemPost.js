@@ -36,7 +36,7 @@ export default function ItemPost({
               {getLanguageIcon({ language })}
             </span>
           </span>
-          <span className="text-xl">
+          <span className="select-none text-xl">
             <Date dateString={date} />
           </span>
         </div>
@@ -48,7 +48,7 @@ export default function ItemPost({
         <p className="mb-5 grow text-xl font-light text-gray-500 dark:text-gray-400">
           {description}
         </p>
-        <div className="flex">
+        <div className="flex select-none">
           {categories.map((category) => (
             <span className="p-2" key={category}>
               <Link key={category} href={`/category/${category}`}>

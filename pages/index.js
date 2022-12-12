@@ -38,26 +38,11 @@ export default function Home({ allPostsData, allCategories }) {
               <ThemeModeSvgComponent className="cursor-pointer" />
             </div>
             <h1
-              className="mx-auto mb-4 max-w-screen-sm text-center text-7xl font-extrabold tracking-tight
+              className="mx-auto mb-4 max-w-screen-sm select-none text-center text-7xl font-extrabold tracking-tight
            text-gray-900 underline dark:text-white"
             >
               Snippets
             </h1>
-            {/* Search Bar - mobile and tab screens */}
-            <div>
-              <input
-                onChange={(e) => {
-                  setSearchTerm(e.target.value);
-                }}
-                type="search"
-                className="text-md mr-4 block w-full rounded-lg border border-gray-300 bg-gray-50 p-4
-             text-gray-900 focus:border-blue-500 focus:ring-blue-500 dark:border-gray-600
-              dark:bg-gray-700 dark:text-white dark:placeholder-gray-400 dark:focus:border-blue-500
-               dark:focus:ring-blue-500 md:hidden"
-                placeholder="Search"
-                required=""
-              />
-            </div>
             {/* Search Bar - large screen */}
             <div className="absolute top-0 right-0 hidden p-8 md:flex">
               <input
@@ -72,28 +57,48 @@ export default function Home({ allPostsData, allCategories }) {
               />
               <ThemeModeSvgComponent className="cursor-pointer" />
             </div>
-            {/* Categories */}
-            <ul className="my-8 flex flex-wrap justify-center text-center font-medium text-gray-500 dark:text-gray-400">
-              {allCategories.map((category) => (
-                <li className="mr-2" key={category}>
-                  <button
-                    onClick={() => {
-                      selectedCategory !== category
-                        ? setSelectedCategory(category)
-                        : setSelectedCategory("");
+            <div className="sticky top-2 backdrop-blur-sm">
+              {/* Search Bar - mobile and tab screens */}
+              <div>
+                {/* Search Bar - mobile and tab screens */}
+                <div>
+                  <input
+                    onChange={(e) => {
+                      setSearchTerm(e.target.value);
                     }}
-                    type="button"
-                    className={`mr-2 mb-2 rounded-full border border-gray-200 bg-white py-2.5 px-5 text-lg font-medium text-gray-900 hover:bg-gray-100 hover:text-blue-700 ${
-                      selectedCategory == category
-                        ? "z-10 outline-none ring-4 ring-gray-400 dark:ring-gray-700"
-                        : ""
-                    }  dark:border-gray-600 dark:bg-gray-800 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white `}
-                  >
-                    {category}
-                  </button>
-                </li>
-              ))}
-            </ul>
+                    type="search"
+                    className="text-md mr-4 block w-full rounded-lg border border-gray-300 bg-gray-50 p-4
+             text-gray-900 focus:border-blue-500 focus:ring-blue-500 dark:border-gray-600
+              dark:bg-gray-700 dark:text-white dark:placeholder-gray-400 dark:focus:border-blue-500
+               dark:focus:ring-blue-500 md:hidden"
+                    placeholder="Search"
+                    required=""
+                  />
+                </div>
+              </div>
+              {/* Categories */}
+              <ul className="my-8 flex select-none flex-wrap justify-center text-center font-medium text-gray-500 dark:text-gray-400">
+                {allCategories.map((category) => (
+                  <li className="mr-2" key={category}>
+                    <button
+                      onClick={() => {
+                        selectedCategory !== category
+                          ? setSelectedCategory(category)
+                          : setSelectedCategory("");
+                      }}
+                      type="button"
+                      className={`mr-2 mb-2 rounded-full border border-gray-200 bg-white py-2.5 px-5 text-lg font-medium  hover:bg-gray-100 hover:text-blue-700 ${
+                        selectedCategory == category
+                          ? "z-10 text-blue-700 outline-none ring-4 ring-gray-400 dark:text-white dark:ring-gray-700"
+                          : "text-gray-900 dark:text-gray-400"
+                      }  dark:border-gray-600 dark:bg-gray-800  dark:hover:bg-gray-700 dark:hover:text-white `}
+                    >
+                      {category}
+                    </button>
+                  </li>
+                ))}
+              </ul>
+            </div>
             {/* Posts */}
             <div className="min-w-200 grid gap-8 lg:grid-cols-2">
               {allPostsData.map(
