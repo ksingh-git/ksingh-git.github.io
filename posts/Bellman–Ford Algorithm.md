@@ -3,7 +3,7 @@ title: "Bellman–Ford Algorithm"
 date: "2022-09-17"
 description: "The Bellman–Ford algorithm is an algorithm that computes shortest paths from a single source vertex to all of the other vertices in a weighted digraph."
 language: "python"
-categories: ["python", "graph"]
+categories: ["Python", "Graph"]
 ---
 
 Given a graph and a source vertex src in the graph, find the shortest paths from src to all vertices in the given graph. The graph may contain negative weight edges.

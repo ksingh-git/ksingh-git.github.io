@@ -3,7 +3,7 @@ title: "Inverse a Binary Tree"
 date: "2022-10-29"
 description: "Inversing a Binary Tree which is defined as a Tree data structure with at most 2 children."
 language: "Python"
-categories: ["python", "tree"]
+categories: ["Python", "Tree"]
 ---
 
 ```python

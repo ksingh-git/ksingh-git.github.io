@@ -9,6 +9,7 @@ import {
   faCss3Alt,
   faReact,
   faAws,
+  faAngular,
 } from "@fortawesome/free-brands-svg-icons";
 
 export default function ItemPost({
@@ -76,6 +77,8 @@ export default function ItemPost({
         return <FontAwesomeIcon icon={faCss3Alt} />;
       case "react":
         return <FontAwesomeIcon icon={faReact} />;
+      case "angular":
+        return <FontAwesomeIcon icon={faAngular} />;
       default:
         return <FontAwesomeIcon icon={faMedapps} />;
     }

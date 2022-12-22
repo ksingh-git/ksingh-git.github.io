@@ -3,7 +3,7 @@ title: "Multistage Graph (Shortest Path)"
 date: "2022-10-31"
 description: "A Multistage graph is a directed, weighted graph in which the nodes can be divided into a set of stages such that all edges are from a stage to next stage only "
 language: "Python"
-categories: ["python", "graph", "shortest path"]
+categories: ["Python", "Graph", "Shortest path"]
 ---
 
 A Multistage graph is a directed, weighted graph in which the nodes can be divided into a set of stages such that all edges are from a stage to next stage only. (In other words there is no edge between vertices of same stage and from a vertex of current stage to previous stage).

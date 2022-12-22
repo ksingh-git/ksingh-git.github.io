@@ -3,7 +3,7 @@ title: "AWS Fundamentals"
 date: "2022-11-30"
 description: "Shorts of AWS Fundamentals"
 language: "AWS"
-categories: ["aws"]
+categories: ["AWS"]
 ---
 
 ## Regions

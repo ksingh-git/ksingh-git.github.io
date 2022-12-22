@@ -3,7 +3,7 @@ title: "Traverse a Binary Tree"
 date: "2022-11-09"
 description: "To process a binary tree by “visiting” each of its nodes, each time performing a specific action such as printing the contents of the node. Any process for visiting all of the nodes in some order is called a traversal."
 language: "Python"
-categories: ["python", "tree"]
+categories: ["Python", "Tree"]
 ---
 
 Pre-order, in-order, and post-order traversal visit each node in a tree by recursively visiting each node in the left and right subtrees of the root.
