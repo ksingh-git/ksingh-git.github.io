@@ -35,7 +35,7 @@ export default function Post({ postData }) {
               <ThemeModeSvgComponent />
             </div>
           </div>
-          <div className="flex w-full flex-col items-center p-8 md:items-center">
+          <div className="flex w-full flex-col items-center p-8 md:items-center lg:px-60">
             <MarkDownWrapper>
               <div className="flex w-full flex-col items-center">
                 <Date dateString={postData.date} />
