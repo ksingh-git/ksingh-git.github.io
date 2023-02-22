@@ -57,7 +57,7 @@ export default function Home({ allPostsData, allCategories }) {
               />
               <ThemeModeSvgComponent className="cursor-pointer" />
             </div>
-            <div className="sticky top-2 backdrop-blur-sm">
+            <div className="top-2 z-auto backdrop-blur-sm">
               {/* Search Bar - mobile and tab screens */}
               <div>
                 {/* Search Bar - mobile and tab screens */}
