@@ -10,6 +10,8 @@ import {
   faReact,
   faAws,
   faAngular,
+  faGithub,
+  faGit,
 } from "@fortawesome/free-brands-svg-icons";
 
 export default function ItemPost({
@@ -79,6 +81,10 @@ export default function ItemPost({
         return <FontAwesomeIcon icon={faReact} />;
       case "angular":
         return <FontAwesomeIcon icon={faAngular} />;
+      case "git":
+        return <FontAwesomeIcon icon={faGit} />;
+      case "github":
+        return <FontAwesomeIcon icon={faGithub} />;
       default:
         return <FontAwesomeIcon icon={faMedapps} />;
     }
