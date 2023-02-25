@@ -29,7 +29,10 @@ export default function Home({ allPostsData, allCategories }) {
     <Layout>
       <Head>
         <title>Snippets</title>
-        <link rel="icon" href="/favicon.ico" />
+        <link
+          rel="icon"
+          href="https://img.icons8.com/emoji/256/four-leaf-clover.png"
+        />
       </Head>
       <div className="flex min-w-min cursor-default content-center justify-center align-middle">
         <section className="relative bg-white dark:bg-gray-900 md:m-8 md:w-full">
