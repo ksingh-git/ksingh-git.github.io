@@ -1,8 +1,8 @@
 ---
 title: "Breath First Search"
 date: "2023-03-15"
-description: "BFS"
-language: "Breadth-first search is an algorithm for searching a tree or graph data structures."
+description: "Breadth-first search is an algorithm for searching a tree or graph data structures."
+language: "python"
 categories: ["python", "tree"]
 ---
 
@@ -10,21 +10,33 @@ BFS, or Breadth-First Search, is a node method for obtaining the graph's shortes
 Breadth-first search is an algorithm for searching a tree data structure for a node that satisfies a given property. It starts at the tree root and explores all nodes at the present depth prior to moving on to the nodes at the next depth level.
 
 ```python
-def bfs(root):
-    if root is None:
-        print("None")
-    if root.left is None and root.right is None:
-        return
-    if root.left is not None:
-        print(root.left.val)
-    else:
-        print("None")
-    if root.right is not None:
-        print(root.right.val)
-    else:
-        print("None")
-    if root.left is not None:
-        bfs(root.left)
-    if root.right is not None:
-        bfs(root.right)
+# BFS algorithm in Python
+
+
+import collections
+
+# BFS algorithm
+def bfs(graph, root):
+
+    visited, queue = set(), collections.deque([root])
+    visited.add(root)
+
+    while queue:
+
+        # Dequeue a vertex from queue
+        vertex = queue.popleft()
+        print(str(vertex) + " ", end="")
+
+        # If not visited, mark it as visited, and
+        # enqueue it
+        for neighbour in graph[vertex]:
+            if neighbour not in visited:
+                visited.add(neighbour)
+                queue.append(neighbour)
+
+
+if __name__ == '__main__':
+    graph = {0: [1, 2], 1: [2], 2: [3], 3: [1, 2]}
+    print("Following is Breadth First Traversal: ")
+    bfs(graph, 0)
 ```
