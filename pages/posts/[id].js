@@ -8,6 +8,7 @@ import { useEffect } from "react";
 import Link from "next/link";
 import ThemeModeSvgComponent from "../../components/theme_mode";
 import MarkDownWrapper from "../../components/markdownWrapper";
+import { addButtonToPre } from "../../components/copyFunctions";
 
 export default function Post({ postData }) {
   useEffect(() => {
@@ -15,6 +16,11 @@ export default function Post({ postData }) {
       languages: ["python"],
     });
     hljs.highlightAll();
+
+    const highlights = document.querySelectorAll("pre");
+    highlights.forEach((div) => {
+      div.append(addButtonToPre());
+    });
   }, []);
 
   return (
