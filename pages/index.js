@@ -36,8 +36,8 @@ export default function Home({ allPostsData, allCategories }) {
       </Head>
       <div className="flex min-w-min cursor-default content-center justify-center align-middle">
         <section className="relative bg-white dark:bg-gray-900 md:m-8 md:w-full">
-          <div className="relative mx-auto my-8 max-w-screen-xl py-8 px-4 lg:py-16 lg:px-6">
-            <div className="absolute top-0 right-2 md:hidden">
+          <div className="relative mx-auto my-8 max-w-screen-xl px-4 py-8 lg:px-6 lg:py-16">
+            <div className="absolute right-2 top-0 md:hidden">
               <ThemeModeSvgComponent className="cursor-pointer" />
             </div>
             <h1
@@ -47,7 +47,7 @@ export default function Home({ allPostsData, allCategories }) {
               Snippets
             </h1>
             {/* Search Bar - large screen */}
-            <div className="absolute top-0 right-0 hidden p-8 md:flex">
+            <div className="absolute right-0 top-0 hidden p-8 md:flex">
               <input
                 onChange={(e) => {
                   setSearchTerm(e.target.value);
@@ -90,7 +90,7 @@ export default function Home({ allPostsData, allCategories }) {
                           : setSelectedCategory("");
                       }}
                       type="button"
-                      className={`mr-2 mb-2 rounded-full border border-gray-200 bg-white py-2.5 px-5 text-lg font-medium  hover:bg-gray-100 hover:text-blue-700 ${
+                      className={`mb-2 mr-2 rounded-full border border-gray-200 bg-white px-5 py-2.5 text-lg font-medium  hover:bg-gray-100 hover:text-blue-700 ${
                         selectedCategory == category
                           ? "z-10 text-blue-700 outline-none ring-4 ring-gray-400 dark:text-white dark:ring-gray-700"
                           : "text-gray-900 dark:text-gray-400"
@@ -107,7 +107,7 @@ export default function Home({ allPostsData, allCategories }) {
               {allPostsData.map(
                 ({ id, date, title, description, language, categories }) => {
                   return (selectedCategory === "" ||
-                    categories.includes(selectedCategory)) &&
+                    categoryExists(selectedCategory, categories)) &&
                     (searchTerm === "" ||
                       searchTermCheck(searchTerm, [
                         title,
@@ -142,4 +142,10 @@ function searchTermCheck(searchTerm, includeList) {
     }
   }
   return false;
+}
+
+function categoryExists(selectedCategory, categories) {
+  return categories.some(
+    (category) => category.toLowerCase() === selectedCategory.toLowerCase()
+  );
 }
