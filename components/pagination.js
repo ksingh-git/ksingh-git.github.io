@@ -8,6 +8,19 @@ const Pagination = ({ currentPage, totalPages }) => {
     <div className="pagination">
       <nav aria-label="Page navigation example">
         <ul class="inline-flex h-10 -space-x-px text-base">
+          {/* Previous Button */}
+          <Link href={`/content/${currentPage - 1}`}>
+            <a
+              className={`ml-0 flex h-10 items-center justify-center rounded-l-lg border px-4 ${
+                currentPage === 1
+                  ? "cursor-not-allowed border-gray-300 bg-gray-200 text-gray-500"
+                  : "border-gray-300 bg-white  leading-tight text-gray-500 hover:bg-gray-100 hover:text-gray-700"
+              }`}
+            >
+              Previous
+            </a>
+          </Link>
+          {/* Pages in number - 1,2,3,.... */}
           {pages.map((page) => (
             <Link href={`/content/${page}`} key={page}>
               <a
@@ -21,14 +34,21 @@ const Pagination = ({ currentPage, totalPages }) => {
               </a>
             </Link>
           ))}
+          {/* Next button */}
+          <Link href={`/content/${currentPage + 1}`}>
+            <a
+              className={`flex h-10 items-center justify-center rounded-r-lg border px-4 ${
+                currentPage === totalPages
+                  ? "cursor-not-allowed border-gray-300 bg-gray-200 text-gray-500"
+                  : "border-gray-300 bg-white  leading-tight text-gray-500 hover:bg-gray-100 hover:text-gray-700"
+              }`}
+              aria-disabled={currentPage === totalPages}
+            >
+              Next
+            </a>
+          </Link>
         </ul>
       </nav>
-
-      {pages.map((page) => (
-        <Link href={`/page/${page}`} key={page}>
-          <a className={page === currentPage ? "active" : ""}>{page}</a>
-        </Link>
-      ))}
     </div>
   );
 };
