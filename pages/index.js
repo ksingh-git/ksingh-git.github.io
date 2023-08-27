@@ -46,6 +46,7 @@ export default function Home({ allPostsData, allCategories }) {
             >
               Snippets
             </h1>
+
             {/* Search Bar - large screen */}
             <div className="absolute right-0 top-0 hidden p-8 md:flex">
               <input
@@ -102,6 +103,7 @@ export default function Home({ allPostsData, allCategories }) {
                 ))}
               </ul>
             </div>
+
             {/* Posts */}
             <div className="min-w-200 grid gap-8 lg:grid-cols-2">
               {allPostsData.map(
