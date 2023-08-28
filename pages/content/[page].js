@@ -65,9 +65,9 @@ const PostsPage = ({ posts, totalPages }) => {
   );
 };
 
-export async function getServerSideProps(context) {
-  const postsPerPage = 8; // Number of posts to display per page
-  const page = context.query.page || 1;
+export async function getStaticProps({ params }) {
+  const postsPerPage = 4; // Number of posts to display per page
+  const page = params.page || 1;
   const posts = await getPaginatedPosts(page, postsPerPage);
   const totalPosts = await getTotalPosts(); // Implement this function to get the total number of posts
   const totalPages = Math.ceil(totalPosts / postsPerPage); // Calculate the total number of pages
@@ -77,6 +77,21 @@ export async function getServerSideProps(context) {
       posts,
       totalPages,
     },
+  };
+}
+export async function getStaticPaths() {
+  const postsPerPage = 4; // Number of posts to display per page
+  const totalPosts = await getTotalPosts(); // Implement this function to get the total number of posts
+  const totalPages = Math.ceil(totalPosts / postsPerPage); // Calculate the total number of pages
+  const paths = Array.from({ length: totalPages }, (_, i) => ({
+    params: {
+      page: (i + 1).toString(), // Pages are 1-indexed
+    },
+  }));
+
+  return {
+    paths,
+    fallback: false,
   };
 }
 
