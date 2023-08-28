@@ -5,6 +5,7 @@ import ItemPost from "../../components/itemPost";
 import Head from "next/head";
 import Layout from "../../components/layout";
 import ThemeModeSvgComponent from "../../components/theme_mode";
+import { postsPerPage } from "../../config/paginationConfig";
 const PostsPage = ({ posts, totalPages }) => {
   const router = useRouter();
   const currentPage = Number(router.query.page) || 1;
@@ -66,12 +67,11 @@ const PostsPage = ({ posts, totalPages }) => {
 };
 
 export async function getStaticProps({ params }) {
-  const postsPerPage = 4; // Number of posts to display per page
   const page = params.page || 1;
   const posts = await getPaginatedPosts(page, postsPerPage);
-  const totalPosts = await getTotalPosts(); // Implement this function to get the total number of posts
-  const totalPages = Math.ceil(totalPosts / postsPerPage); // Calculate the total number of pages
-
+  const totalPosts = await getTotalPosts();
+  // Calculate the total number of pages
+  const totalPages = Math.ceil(totalPosts / postsPerPage);
   return {
     props: {
       posts,
@@ -80,9 +80,9 @@ export async function getStaticProps({ params }) {
   };
 }
 export async function getStaticPaths() {
-  const postsPerPage = 4; // Number of posts to display per page
-  const totalPosts = await getTotalPosts(); // Implement this function to get the total number of posts
-  const totalPages = Math.ceil(totalPosts / postsPerPage); // Calculate the total number of pages
+  const totalPosts = await getTotalPosts();
+  // Calculate the total number of pages
+  const totalPages = Math.ceil(totalPosts / postsPerPage);
   const paths = Array.from({ length: totalPages }, (_, i) => ({
     params: {
       page: (i + 1).toString(), // Pages are 1-indexed
