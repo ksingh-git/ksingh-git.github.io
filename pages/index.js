@@ -27,6 +27,12 @@ export default function Home({ allPostsData, allCategories }) {
       localStorage.setItem("theme", "light");
     }
   }, []);
+
+  const handleClear = () => {
+    setSelectedCategory("");
+    setSearchTerm("");
+  };
+
   return (
     <Layout>
       <Head>
@@ -138,7 +144,18 @@ export default function Home({ allPostsData, allCategories }) {
               )}
             </div>
             {!numberOfPosts ? (
-              <div className="text-black dark:text-white">NO POSTS</div>
+              <div className="flex flex-col items-center">
+                <p class="mb-2 text-center text-3xl font-normal text-gray-500 dark:text-gray-400 sm:text-2xl lg:text-4xl xl:text-4xl">
+                  No Results
+                </p>
+                <button
+                  type="button"
+                  onClick={handleClear}
+                  class="rounded-lg border border-gray-300 bg-white px-5 py-2.5 text-sm font-medium text-gray-900 hover:bg-gray-100 focus:outline-none focus:ring-4 focus:ring-gray-200 dark:border-gray-600 dark:bg-gray-800 dark:text-white dark:hover:border-gray-600 dark:hover:bg-gray-700 dark:focus:ring-gray-700"
+                >
+                  CLEAR
+                </button>
+              </div>
             ) : null}
           </div>
         </section>
