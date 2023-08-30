@@ -20,6 +20,8 @@ export async function getStaticProps() {
 export default function Home({ allPostsData, allCategories }) {
   const [selectedCategory, setSelectedCategory] = useState("");
   const [searchTerm, setSearchTerm] = useState("");
+  let numberOfPosts = 0;
+
   useEffect(() => {
     if (!localStorage.getItem("theme")) {
       localStorage.setItem("theme", "light");
@@ -108,28 +110,36 @@ export default function Home({ allPostsData, allCategories }) {
             <div className="min-w-200 grid gap-8 lg:grid-cols-2">
               {allPostsData.map(
                 ({ id, date, title, description, language, categories }) => {
-                  return (selectedCategory === "" ||
-                    categoryExists(selectedCategory, categories)) &&
+                  if (
+                    (selectedCategory === "" ||
+                      categoryExists(selectedCategory, categories)) &&
                     (searchTerm === "" ||
                       searchTermCheck(searchTerm, [
                         title,
                         description,
                         language,
                         categories.join(" "),
-                      ])) ? (
-                    <ItemPost
-                      key={id}
-                      id={id}
-                      date={date}
-                      title={title}
-                      description={description}
-                      language={language}
-                      categories={categories}
-                    />
-                  ) : null;
+                      ]))
+                  ) {
+                    numberOfPosts++;
+                    return (
+                      <ItemPost
+                        key={id}
+                        id={id}
+                        date={date}
+                        title={title}
+                        description={description}
+                        language={language}
+                        categories={categories}
+                      />
+                    );
+                  }
                 }
               )}
             </div>
+            {!numberOfPosts ? (
+              <div className="text-black dark:text-white">NO POSTS</div>
+            ) : null}
           </div>
         </section>
       </div>
