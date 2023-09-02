@@ -75,6 +75,7 @@ export default function Home({ allPostsData, allCategories }) {
                 {/* Search Bar - mobile and tab screens */}
                 <div>
                   <input
+                    value={searchTerm}
                     onChange={(e) => {
                       setSearchTerm(e.target.value);
                     }}

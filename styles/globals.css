@@ -6,18 +6,23 @@
   font-family: AgentC;
   src: url(../styles/fonts/AgentC.woff);
 }
-
 body {
   font-family: AgentC;
   background: url(../public/background.webp) no-repeat fixed;
   background-size: 100% 100%;
 }
-
 h1 {
   font-family: Whatnot !important;
 }
+button,
+a,
+span,
+div {
+  -webkit-tap-highlight-color: transparent;
+}
 pre {
   position: relative;
+  white-space: pre-wrap;
 }
 pre code {
   background-color: transparent !important;
