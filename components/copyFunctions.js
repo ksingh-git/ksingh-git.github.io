@@ -1,9 +1,3 @@
-/**
- * Copies the given string to the clipboard.
- *
- * @param {string} str - The string to be copied to the clipboard.
- * @return {Promise<void>} A promise that resolves when the text has been successfully copied to the clipboard.
- */
 export const copyToClipboard = (str) => {
   navigator.clipboard
     .writeText(str)
@@ -15,12 +9,6 @@ export const copyToClipboard = (str) => {
     });
 };
 
-/**
- * Handles the click event for the copy button.
- *
- * @param {Event} evt - The click event object.
- * @return {undefined} This function does not return any value.
- */
 export function handleCopyClick(evt) {
   const { children } = evt.target.parentElement;
   const { innerText } = Array.from(children)[0];
@@ -32,11 +20,6 @@ export function handleCopyClick(evt) {
   }, 2000);
 }
 
-/**
- * Creates a new button element and adds it to the pre element.
- *
- * @return {HTMLButtonElement} The newly created button element.
- */
 export function addButtonToPre() {
   const copy = document.createElement("button");
   copy.innerHTML = "Copy";
