@@ -25,7 +25,7 @@ const Pagination = ({ currentPage, totalPages }) => {
           {/* Pages in number - 1,2,3,.... */}
           {pages.map((page) => (
             <Link href={`/content/${page}`} key={page}>
-              <a
+              <div
                 className={`
                  ${
                    page === currentPage
@@ -34,7 +34,7 @@ const Pagination = ({ currentPage, totalPages }) => {
                  }`}
               >
                 {page}
-              </a>
+              </div>
             </Link>
           ))}
           {/* Next button */}
