@@ -8,8 +8,6 @@
 }
 body {
   font-family: AgentC;
-  background: url(../public/background.webp) no-repeat fixed;
-  background-size: 100% 100%;
 }
 h1 {
   font-family: Whatnot !important;
