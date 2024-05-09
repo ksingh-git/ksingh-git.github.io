@@ -28,7 +28,7 @@ export default function Post({ postData }) {
       <Head>
         <title>{postData.title}</title>
       </Head>
-      <section className="min-w-min bg-white dark:bg-gray-900 md:m-8">
+      <section className="min-w-min bg-white dark:bg-gray-900">
         <div>
           <div className="flex w-full cursor-pointer justify-between md:p-8">
             {" "}
