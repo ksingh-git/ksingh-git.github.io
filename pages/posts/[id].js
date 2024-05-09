@@ -9,6 +9,7 @@ import Link from "next/link";
 import ThemeModeSvgComponent from "../../components/theme_mode";
 import MarkDownWrapper from "../../components/markdownWrapper";
 import { addButtonToPre } from "../../components/copyFunctions";
+import Summarize from "../../components/summarize";
 
 export default function Post({ postData }) {
   useEffect(() => {
@@ -47,6 +48,7 @@ export default function Post({ postData }) {
                 <Date dateString={postData.date} />
                 <h1 className="text-center">{postData.title}</h1>
               </div>
+              <Summarize />
               <div dangerouslySetInnerHTML={{ __html: postData.contentHtml }} />
             </MarkDownWrapper>
           </div>
