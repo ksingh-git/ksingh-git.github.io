@@ -37,82 +37,63 @@ export default function Home({ allPostsData, allCategories }) {
     <Layout>
       <Head>
         <title>Snippets</title>
-        <link
-          rel="icon"
-          href="https://img.icons8.com/emoji/256/four-leaf-clover.png"
-        />
       </Head>
       <div className="flex min-w-min cursor-default content-center justify-center align-middle">
-        <section className="relative bg-white dark:bg-gray-900 md:m-8 md:w-full">
-          <div className="relative mx-auto my-8 max-w-screen-xl px-4 py-8 lg:px-6 lg:py-16">
-            <div className="absolute right-2 top-0 md:hidden">
+        <section className="relative bg-white dark:bg-gray-900 md:w-full">
+          <div className=" relative mx-auto my-8 max-w-screen-xl px-4 py-8 md:m-8 lg:px-6 lg:py-16">
+            <div className="absolute right-2 top-0">
               <ThemeModeSvgComponent className="cursor-pointer" />
             </div>
             <h1
               className="mx-auto mb-4 max-w-screen-sm select-none text-center text-7xl font-extrabold tracking-tight
-           text-gray-900 underline dark:text-white"
+           text-gray-900 dark:text-white"
             >
               Snippets
             </h1>
 
-            {/* Search Bar - large screen */}
-            <div className="absolute right-0 top-0 hidden p-8 md:flex">
-              <input
-                onChange={(e) => {
-                  setSearchTerm(e.target.value);
-                }}
-                type="search"
-                className="text-md mr-4  w-full rounded-lg border border-gray-300 bg-gray-50 p-4 text-gray-900 focus:border-blue-500 focus:ring-blue-500 dark:border-gray-600 dark:bg-gray-700 dark:text-white
-               dark:placeholder-gray-400 dark:focus:border-blue-500 dark:focus:ring-blue-500 md:block"
-                placeholder="Search"
-                required=""
-              />
-              <ThemeModeSvgComponent className="cursor-pointer" />
-            </div>
-            <div className="top-2 z-auto backdrop-blur-sm">
-              {/* Search Bar - mobile and tab screens */}
-              <div>
-                {/* Search Bar - mobile and tab screens */}
-                <div>
-                  <input
-                    value={searchTerm}
-                    onChange={(e) => {
-                      setSearchTerm(e.target.value);
-                    }}
-                    type="search"
-                    className="text-md mr-4 block w-full rounded-lg border border-gray-300 bg-gray-50 p-4
-             text-gray-900 focus:border-blue-500 focus:ring-blue-500 dark:border-gray-600
-              dark:bg-gray-700 dark:text-white dark:placeholder-gray-400 dark:focus:border-blue-500
-               dark:focus:ring-blue-500 md:hidden"
-                    placeholder="Search"
-                    required=""
-                  />
-                </div>
+            {/* Search Bar - mobile and tab screens */}
+            <div
+              className="mx-auto mb-4 max-w-screen-lg tracking-tight
+           text-gray-900 dark:text-white"
+            >
+              <div className="top-2 z-auto content-center backdrop-blur-sm">
+                <input
+                  value={searchTerm}
+                  onChange={(e) => {
+                    setSearchTerm(e.target.value);
+                  }}
+                  type="search"
+                  className="text-md block w-full max-w-5xl rounded-lg border border-gray-300 bg-gray-50
+             p-4 text-gray-900 focus:border-blue-500 focus:ring-blue-500
+              dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder-gray-400
+               dark:focus:border-blue-500 dark:focus:ring-blue-500"
+                  placeholder="Search"
+                  required=""
+                />
               </div>
-              {/* Categories */}
-              <ul className="my-8 flex select-none flex-wrap justify-center text-center font-medium text-gray-500 dark:text-gray-400">
-                {allCategories.map((category) => (
-                  <li className="mr-2" key={category}>
-                    <button
-                      onClick={() => {
-                        selectedCategory !== category
-                          ? setSelectedCategory(category)
-                          : setSelectedCategory("");
-                      }}
-                      type="button"
-                      className={`mb-2 mr-2 rounded-full border border-gray-200 bg-white px-5 py-2.5 text-lg font-medium  hover:bg-gray-100 hover:text-blue-700 ${
-                        selectedCategory == category
-                          ? "z-10 text-blue-700 outline-none ring-4 ring-gray-400 dark:text-white dark:ring-gray-700"
-                          : "text-gray-900 dark:text-gray-400"
-                      }  dark:border-gray-600 dark:bg-gray-800  dark:hover:bg-gray-700 dark:hover:text-white `}
-                    >
-                      {category}
-                    </button>
-                  </li>
-                ))}
-              </ul>
             </div>
-
+            {/* Categories */}
+            <ul className="my-8 flex select-none flex-wrap justify-center text-center font-medium text-gray-500 dark:text-gray-400">
+              {allCategories.map((category) => (
+                <li className="mr-2" key={category}>
+                  <button
+                    onClick={() => {
+                      selectedCategory !== category
+                        ? setSelectedCategory(category)
+                        : setSelectedCategory("");
+                    }}
+                    type="button"
+                    className={`mb-2 mr-2 rounded-full border border-gray-200 bg-white px-5 py-2.5 text-lg font-medium  hover:bg-gray-100 hover:text-blue-700 ${
+                      selectedCategory == category
+                        ? "z-10 text-blue-700 outline-none ring-4 ring-gray-400 dark:text-white dark:ring-gray-700"
+                        : "text-gray-900 dark:text-gray-400"
+                    }  dark:border-gray-600 dark:bg-gray-800  dark:hover:bg-gray-700 dark:hover:text-white `}
+                  >
+                    {category}
+                  </button>
+                </li>
+              ))}
+            </ul>
             {/* Posts */}
             <div className="min-w-200 grid gap-8 lg:grid-cols-2">
               {allPostsData.map(

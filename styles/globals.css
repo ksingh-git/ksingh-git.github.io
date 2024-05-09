@@ -1,16 +1,8 @@
-@font-face {
-  font-family: Whatnot;
-  src: url(../styles/fonts/Whatnot.woff);
-}
-@font-face {
-  font-family: AgentC;
-  src: url(../styles/fonts/AgentC.woff);
-}
 body {
-  font-family: AgentC;
+  font-family: "Indie Flower";
 }
 h1 {
-  font-family: Whatnot !important;
+  font-family: "Whisper" !important;
 }
 button,
 a,
