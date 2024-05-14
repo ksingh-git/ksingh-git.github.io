@@ -73,7 +73,7 @@ const Summarize = () => {
           <div className="fixed left-0 top-0 z-50 flex h-full w-full items-center justify-center">
             <div className="modal-overlay"></div>
             <div
-              className="max-h-80vh relative max-h-full w-full max-w-2xl overflow-y-auto p-4"
+              className="max-h-80vh scrollbar-hide relative max-h-full w-full max-w-2xl overflow-y-auto p-4"
               ref={modalRef}
             >
               <div className="relative rounded-lg bg-white shadow dark:bg-gray-700">

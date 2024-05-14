@@ -32,7 +32,10 @@ pre button {
   right: 0;
   border-radius: 0 0.15rem;
 }
-
+/* Hide scrollbar for webkit browsers */
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
