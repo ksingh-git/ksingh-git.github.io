@@ -1,20 +1,41 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
+import TextSkeleton from "./textSkeleton";
+import { fetchSummary } from "../config/summarizeService";
 
 const Summarize = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
+  const [summary, setSummary] = useState("");
+  const modalRef = useRef(null); // Ref for modal content
 
-  const openModal = () => {
+  const openModal = async () => {
     setIsModalOpen(true);
+    setIsLoading(true);
+    try {
+      const requestData = {
+        text: "Summary of Life is Strange Game",
+      };
+      const data = await fetchSummary(requestData);
+      setSummary(data.text);
+    } catch (error) {
+      console.error("Error fetching summary:", error);
+    } finally {
+      setIsLoading(false);
+    }
   };
 
   const closeModal = () => {
     setIsModalOpen(false);
   };
 
-  // Close the modal if clicked outside of it
   useEffect(() => {
     const handleClickOutside = (event) => {
-      if (!event.target.closest(".modal")) {
+      if (
+        isModalOpen &&
+        modalRef.current &&
+        !modalRef.current.contains(event.target) &&
+        !event.target.closest(".modal")
+      ) {
         closeModal();
       }
     };
@@ -50,21 +71,33 @@ const Summarize = () => {
           </div>
           <div className="fixed left-0 top-0 z-50 flex h-full w-full items-center justify-center">
             <div className="modal-overlay"></div>
-            <div className="relative max-h-full w-full max-w-2xl p-4">
+            <div
+              className="relative max-h-full w-full max-w-2xl p-4"
+              ref={modalRef}
+            >
               <div className="relative rounded-lg bg-white shadow dark:bg-gray-700">
                 <div className="space-y-4 p-4 md:p-5">
-                  <p className="text-base leading-relaxed text-gray-500 dark:text-gray-400">
-                    Summary comes hereSummary comes hereSummary comes here
-                  </p>
-                </div>
-                <div className="flex items-center justify-center border-t border-gray-200 p-4 dark:border-gray-600 md:p-5">
-                  <button
-                    onClick={closeModal}
-                    type="button"
-                    className="rounded-lg border border-gray-200 bg-white px-5 py-2.5 text-sm font-medium text-gray-900 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:outline-none focus:ring-4 focus:ring-gray-100 dark:border-gray-600 dark:bg-gray-800 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white dark:focus:ring-gray-700"
-                  >
-                    Close
-                  </button>
+                  <div className="text-base leading-relaxed text-gray-500 dark:text-gray-400">
+                    {isLoading ? (
+                      <TextSkeleton />
+                    ) : (
+                      // Render summary when isLoading is false
+                      <div className="flex h-full items-center justify-center">
+                        <p className="text-center text-base leading-relaxed text-gray-500 dark:text-gray-400">
+                          SORRY!!! Something went wrong! Ah 404?
+                        </p>
+                      </div>
+                    )}
+                  </div>{" "}
+                  <div className="flex items-center justify-center border-t border-gray-200 p-4 dark:border-gray-600 md:p-5">
+                    <button
+                      onClick={closeModal}
+                      type="button"
+                      className="rounded-lg border border-gray-200 bg-white px-5 py-2.5 text-sm font-medium text-gray-900 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:outline-none focus:ring-4 focus:ring-gray-100 dark:border-gray-600 dark:bg-gray-800 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white dark:focus:ring-gray-700"
+                    >
+                      Close
+                    </button>
+                  </div>
                 </div>
               </div>
             </div>
