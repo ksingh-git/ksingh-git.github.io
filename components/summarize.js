@@ -19,6 +19,7 @@ const Summarize = () => {
       setSummary(data.text);
     } catch (error) {
       console.error("Error fetching summary:", error);
+      setSummary("SORRY!!! Something went wrong! Ah 404?");
     } finally {
       setIsLoading(false);
     }
@@ -84,7 +85,7 @@ const Summarize = () => {
                       // Render summary when isLoading is false
                       <div className="flex h-full items-center justify-center">
                         <p className="text-center text-base leading-relaxed text-gray-500 dark:text-gray-400">
-                          SORRY!!! Something went wrong! Ah 404?
+                          {summary}
                         </p>
                       </div>
                     )}
