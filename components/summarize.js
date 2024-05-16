@@ -5,15 +5,19 @@ import { fetchSummary } from "../config/summarizeService";
 const Summarize = ({ content }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
+  const [requestContent] = useState(
+    "Give me a summary in not more than 100 words : "
+  );
   const [summary, setSummary] = useState("");
   const modalRef = useRef(null); // Ref for modal content
 
   const openModal = async () => {
     setIsModalOpen(true);
     setIsLoading(true);
+    const requestContentData = requestContent + content;
     try {
       const requestData = {
-        text: content,
+        text: requestContentData,
       };
       const data = await fetchSummary(requestData);
       setSummary(data.text);
