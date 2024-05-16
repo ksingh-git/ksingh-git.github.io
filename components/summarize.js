@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef } from "react";
 import TextSkeleton from "./textSkeleton";
 import { fetchSummary } from "../config/summarizeService";
 
-const Summarize = () => {
+const Summarize = ({ content }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
   const [summary, setSummary] = useState("");
@@ -13,7 +13,7 @@ const Summarize = () => {
     setIsLoading(true);
     try {
       const requestData = {
-        text: "Summary of Life is Strange Game",
+        text: content,
       };
       const data = await fetchSummary(requestData);
       setSummary(data.text);
