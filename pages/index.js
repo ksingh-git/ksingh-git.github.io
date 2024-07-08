@@ -38,7 +38,7 @@ export default function Home({ allPostsData, allCategories }) {
       <Head>
         <title>Snippets</title>
       </Head>
-      <div className="relative flex h-full max-h-screen min-w-min cursor-default content-center justify-center bg-white align-middle dark:bg-gray-900 md:w-full">
+      <div className="relative flex h-full min-w-min cursor-default content-center justify-center bg-white align-middle dark:bg-gray-900 md:w-full">
         <div className="relative mx-auto my-8 max-w-screen-xl px-4 py-8 md:m-8 lg:px-6 lg:py-16">
           <div className="absolute right-2 top-0">
             <ThemeModeSvgComponent className="cursor-pointer" />
