@@ -1,8 +1,20 @@
 import { useEffect, useState } from "react";
 
-// Theme mode svg component
+/**
+ * A React component that toggles between light and dark themes.
+ *
+ * @param {Object} props - The properties passed to the component.
+ * @returns {ReactElement} A button that toggles the theme and displays
+ *                         the corresponding SVG icon for the current theme.
+ */
 function ThemeModeSvgComponent(props) {
   const [theme, setTheme] = useState("light");
+  /**
+   * Toggles the current theme between light and dark. If the current
+   * theme is light, the function sets the theme to dark and vice versa.
+   * Additionally, the function toggles the "dark" class on the
+   * #main-container element and updates the theme in local storage.
+   */
   const darkMode = () => {
     let element = document.getElementById("main-container");
     element.classList.toggle("dark");
@@ -22,23 +34,22 @@ function ThemeModeSvgComponent(props) {
   });
 
   return (
-    <>
-      <button
-        onClick={() => {
-          darkMode();
-        }}
-      >
-        {theme === "light" ? (
-          <DarkModeSvgComponent />
-        ) : (
-          <LightmodeSvgComponent />
-        )}
-      </button>
-    </>
+    <button
+      onClick={() => {
+        darkMode();
+      }}
+    >
+      {theme === "light" ? <DarkModeSvgComponent /> : <LightmodeSvgComponent />}
+    </button>
   );
 }
 
-// Create a Lightmode SVG component.
+/**
+ * A React component that renders an SVG icon representing light mode.
+ *
+ * @param {Object} props - The properties passed to the SVG element.
+ * @returns {ReactElement} An SVG element for the light mode icon.
+ */
 function LightmodeSvgComponent(props) {
   return (
     <svg xmlns="http://www.w3.org/2000/svg" height={48} width={48} {...props}>
@@ -50,7 +61,12 @@ function LightmodeSvgComponent(props) {
   );
 }
 
-// Creates a DarkMode SVG component.
+/**
+ * A React component that renders an SVG icon representing dark mode.
+ *
+ * @param {Object} props - The properties passed to the SVG element.
+ * @returns {ReactElement} An SVG element for the dark mode icon.
+ */
 function DarkModeSvgComponent(props) {
   return (
     <svg xmlns="http://www.w3.org/2000/svg" height={48} width={48} {...props}>
@@ -61,4 +77,5 @@ function DarkModeSvgComponent(props) {
     </svg>
   );
 }
+
 export default ThemeModeSvgComponent;
