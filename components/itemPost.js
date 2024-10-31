@@ -1,5 +1,5 @@
 import Link from "next/link";
-import Date from "../components/date";
+import DateElement from "./date";
 import PropTypes from "prop-types";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -53,7 +53,7 @@ export default function ItemPost({
             </svg>
           </span>
           <span className="select-none text-xl">
-            <Date dateString={date} />
+            <DateElement dateString={date} />
           </span>
         </div>
         <Link href={`/posts/${id}`}>

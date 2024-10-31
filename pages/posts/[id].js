@@ -2,7 +2,7 @@ import Layout from "../../components/layout";
 import PropTypes from "prop-types";
 import { getAllPostIds, getPostData } from "../../lib/posts";
 import Head from "next/head";
-import Date from "../../components/date";
+import DateElement from "../../components/date";
 import hljs from "highlight.js/lib/common";
 import "highlight.js/styles/github-dark.css";
 import { useEffect } from "react";
@@ -55,7 +55,7 @@ export default function Post({ postData }) {
           <div className="flex w-full flex-col items-center p-8 md:items-center lg:px-60">
             <MarkDownWrapper>
               <div className="flex w-full flex-col items-center">
-                <Date dateString={postData.date} />
+                <DateElement dateString={postData.date} />
                 <h1 className="text-center">{postData.title}</h1>
               </div>
               <Summarize content={postData.contentHtml} />
