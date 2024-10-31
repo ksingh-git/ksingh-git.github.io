@@ -1,7 +1,19 @@
 import React, { useState, useEffect, useRef } from "react";
+import PropTypes from "prop-types";
 import TextSkeleton from "./textSkeleton";
 import { fetchSummary } from "../config/summarizeService";
 
+/**
+ * A React component that provides a button to open a modal displaying a summary
+ * of the provided content. The summary is fetched from an external API upon
+ * clicking the button. The component manages loading state and handles modal
+ * visibility. The modal can be dismissed by clicking outside or pressing the
+ * close button.
+ *
+ * @param {Object} props
+ * @param {string} props.content - The content to be summarized.
+ * @returns {ReactElement} A button and modal interface for content summarization.
+ */
 const Summarize = ({ content }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
@@ -11,6 +23,11 @@ const Summarize = ({ content }) => {
   const [summary, setSummary] = useState("");
   const modalRef = useRef(null); // Ref for modal content
 
+  /**
+   * Opens the modal, sets loading state to true, and fetches a summary from an
+   * external API. If the request fails, it sets a default error message.
+   * Finally, it sets loading state to false.
+   */
   const openModal = async () => {
     setIsModalOpen(true);
     setIsLoading(true);
@@ -29,11 +46,21 @@ const Summarize = ({ content }) => {
     }
   };
 
+  /**
+   * Closes the modal by setting isModalOpen to false.
+   */
   const closeModal = () => {
     setIsModalOpen(false);
   };
 
   useEffect(() => {
+    /**
+     * Handles a click event outside the modal to close it. If the element clicked
+     * is not the modal content and not a child of the modal, it calls closeModal
+     * to close the modal.
+     *
+     * @param {Event} event - The click event.
+     */
     const handleClickOutside = (event) => {
       if (
         isModalOpen &&
@@ -111,6 +138,10 @@ const Summarize = ({ content }) => {
       )}
     </div>
   );
+};
+
+Summarize.propTypes = {
+  content: PropTypes.string.isRequired,
 };
 
 export default Summarize;
