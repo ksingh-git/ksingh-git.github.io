@@ -1,5 +1,6 @@
 import Link from "next/link";
 import Date from "../components/date";
+import PropTypes from "prop-types";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faPython,
@@ -15,6 +16,17 @@ import {
   faConnectdevelop,
 } from "@fortawesome/free-brands-svg-icons";
 
+/**
+ * A component that displays a single post item in a list.
+ *
+ * @param {string} props.id - The post id.
+ * @param {string} props.date - The post date.
+ * @param {string} props.title - The post title.
+ * @param {string} props.description - The post description.
+ * @param {string} props.language - The programming language used in the post.
+ * @param {Array<string>} props.categories - The categories of the post.
+ * @returns {ReactElement} - The component.
+ */
 export default function ItemPost({
   id,
   date,
@@ -31,14 +43,14 @@ export default function ItemPost({
       <article className="flex h-full flex-col rounded-lg border border-gray-200 bg-white p-6 shadow-md dark:border-gray-700 dark:bg-gray-800">
         <div className="mb-5 flex items-center justify-between text-gray-500">
           <span className="bg-primary-100 text-primary-800 dark:bg-primary-200 dark:text-primary-800 inline-flex items-center justify-center rounded px-2.5 py-0.5 text-xl font-medium">
-            <span
+            <svg
               className="mb-1 mr-1 h-6 w-6"
               fill="currentColor"
               viewBox="0 0 20 20"
               xmlns="http://www.w3.org/2000/svg"
             >
               {getLanguageIcon({ language })}
-            </span>
+            </svg>
           </span>
           <span className="select-none text-xl">
             <Date dateString={date} />
@@ -93,3 +105,12 @@ export default function ItemPost({
     }
   }
 }
+
+ItemPost.propTypes = {
+  id: PropTypes.string,
+  date: PropTypes.string,
+  title: PropTypes.string,
+  description: PropTypes.string,
+  language: PropTypes.string,
+  categories: PropTypes.array,
+};
