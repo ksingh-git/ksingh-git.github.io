@@ -1,3 +1,12 @@
+/**
+ * Copies a given string to the user's clipboard.
+ *
+ * @param {string} str - The string to be copied.
+ *
+ * @returns {Promise<void>} - A promise that resolves when the string has been
+ *   successfully copied to the clipboard, and rejects if the copy operation
+ *   fails.
+ */
 export const copyToClipboard = (str) => {
   navigator.clipboard
     .writeText(str)
@@ -9,6 +18,14 @@ export const copyToClipboard = (str) => {
     });
 };
 
+/**
+ * Handles a click event on a copy button. When the event is triggered, the
+ * method copies the innerText of the first child element of the parent element
+ * to the user's clipboard. It also changes the innerHTML of the button itself
+ * to "Copied!" and changes it back to "Copy" after 2 seconds.
+ *
+ * @param {Event} evt - The event that triggered the method.
+ */
 export function handleCopyClick(evt) {
   const { children } = evt.target.parentElement;
   const { innerText } = Array.from(children)[0];
@@ -20,6 +37,11 @@ export function handleCopyClick(evt) {
   }, 2000);
 }
 
+/**
+ * Creates a copy button and adds it to the first <pre> element in the page.
+ *
+ * @returns {HTMLButtonElement} - The created button element.
+ */
 export function addButtonToPre() {
   const copy = document.createElement("button");
   copy.innerHTML = "Copy";
