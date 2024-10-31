@@ -1,11 +1,19 @@
 import Head from "next/head";
 import Layout from "../components/layout";
+import PropTypes from "prop-types";
 import { getSortedPostsData } from "../lib/posts";
 import ThemeModeSvgComponent from "../components/theme_mode";
 import { useState, useEffect } from "react";
 import ItemPost from "../components/itemPost";
 import { getCategoriesList } from "../lib/categories";
 
+/**
+ * Fetches and returns sorted posts data and categories list as props.
+ *
+ * @returns {Object} An object containing props for all posts data and all categories.
+ * @returns {Array} props.allPostsData - Sorted data of all posts.
+ * @returns {Array} props.allCategories - List of all categories.
+ */
 export async function getStaticProps() {
   const allPostsData = getSortedPostsData();
   const allCategories = await getCategoriesList();
@@ -17,6 +25,15 @@ export async function getStaticProps() {
   };
 }
 
+/**
+ * The homepage of the site, showing all posts with a search bar to filter posts
+ * and a list of categories to filter posts by category.
+ *
+ * @param {Object} props - Props passed to the component.
+ * @param {Array} props.allPostsData - Sorted data of all posts.
+ * @param {Array} props.allCategories - List of all categories.
+ * @returns {ReactElement} - The JSX element representing the component.
+ */
 export default function Home({ allPostsData, allCategories }) {
   const [selectedCategory, setSelectedCategory] = useState("");
   const [searchTerm, setSearchTerm] = useState("");
@@ -117,13 +134,13 @@ export default function Home({ allPostsData, allCategories }) {
           </div>
           {!numberOfPosts ? (
             <div className="flex flex-col items-center">
-              <p class="mb-2 text-center text-3xl font-normal text-gray-500 dark:text-gray-400 sm:text-2xl lg:text-4xl xl:text-4xl">
+              <p className="mb-2 text-center text-3xl font-normal text-gray-500 dark:text-gray-400 sm:text-2xl lg:text-4xl xl:text-4xl">
                 No Results
               </p>
               <button
                 type="button"
                 onClick={handleClear}
-                class="rounded-lg border border-gray-300 bg-white px-5 py-2.5 text-sm font-medium text-gray-900 hover:bg-gray-100 focus:outline-none focus:ring-4 focus:ring-gray-200 dark:border-gray-600 dark:bg-gray-800 dark:text-white dark:hover:border-gray-600 dark:hover:bg-gray-700 dark:focus:ring-gray-700"
+                className="rounded-lg border border-gray-300 bg-white px-5 py-2.5 text-sm font-medium text-gray-900 hover:bg-gray-100 focus:outline-none focus:ring-4 focus:ring-gray-200 dark:border-gray-600 dark:bg-gray-800 dark:text-white dark:hover:border-gray-600 dark:hover:bg-gray-700 dark:focus:ring-gray-700"
               >
                 CLEAR
               </button>
@@ -135,6 +152,14 @@ export default function Home({ allPostsData, allCategories }) {
   );
 }
 
+/**
+ * Checks if the given search term is present in any of the elements in the
+ * given list. Case is ignored.
+ *
+ * @param {string} searchTerm - The term to search for.
+ * @param {Array<string>} includeList - The list of strings to search in.
+ * @returns {boolean} - True if the search term is found, false otherwise.
+ */
 function searchTermCheck(searchTerm, includeList) {
   for (const element of includeList) {
     if (element.toLowerCase().includes(searchTerm.toLowerCase())) {
@@ -144,8 +169,21 @@ function searchTermCheck(searchTerm, includeList) {
   return false;
 }
 
+/**
+ * Checks if the given selected category exists in the given list of categories.
+ * Case is ignored.
+ *
+ * @param {string} selectedCategory - The category to search for.
+ * @param {Array<string>} categories - The list of categories to search in.
+ * @returns {boolean} - True if the selected category exists, false otherwise.
+ */
 function categoryExists(selectedCategory, categories) {
   return categories.some(
     (category) => category.toLowerCase() === selectedCategory.toLowerCase()
   );
 }
+
+Home.propTypes = {
+  allPostsData: PropTypes.array,
+  allCategories: PropTypes.array,
+};
