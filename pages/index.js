@@ -91,7 +91,7 @@ export default function Home({ allPostsData, allCategories }) {
                   }}
                   type="button"
                   className={`mb-2 mr-2 rounded-full border border-gray-200 bg-white px-5 py-2.5 text-lg font-medium  hover:bg-gray-100 hover:text-blue-700 ${
-                    selectedCategory == category
+                    selectedCategory === category
                       ? "z-10 text-blue-700 outline-none ring-4 ring-gray-400 dark:text-white dark:ring-gray-700"
                       : "text-gray-900 dark:text-gray-400"
                   }  dark:border-gray-600 dark:bg-gray-800  dark:hover:bg-gray-700 dark:hover:text-white `}
