@@ -1,7 +1,11 @@
 import Link from "next/link";
 import Layout from "../components/layout";
 
-// pages/404.js
+/**
+ * A custom 404 page that displays a message with a link to the homepage.
+ *
+ * @returns The JSX element representing the custom 404 page.
+ */
 export default function Custom404() {
   return (
     <Layout>
@@ -21,7 +25,7 @@ export default function Custom404() {
             <Link href={"/"}>
               <button
                 type="button"
-                class="mb-2 mr-2 rounded-full border border-gray-300 bg-white px-5 py-2.5 text-base font-medium text-gray-900 hover:bg-gray-100 focus:outline-none focus:ring-4 focus:ring-gray-200 dark:border-gray-600 dark:bg-gray-800 dark:text-white dark:hover:border-gray-600 dark:hover:bg-gray-700 dark:focus:ring-gray-700 md:text-lg"
+                className="mb-2 mr-2 rounded-full border border-gray-300 bg-white px-5 py-2.5 text-base font-medium text-gray-900 hover:bg-gray-100 focus:outline-none focus:ring-4 focus:ring-gray-200 dark:border-gray-600 dark:bg-gray-800 dark:text-white dark:hover:border-gray-600 dark:hover:bg-gray-700 dark:focus:ring-gray-700 md:text-lg"
               >
                 Back to Homepage
               </button>
