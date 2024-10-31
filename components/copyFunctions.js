@@ -2,39 +2,27 @@
  * Copies a given string to the user's clipboard.
  *
  * @param {string} str - The string to be copied.
- *
- * @returns {Promise<void>} - A promise that resolves when the string has been
- *   successfully copied to the clipboard, and rejects if the copy operation
- *   fails.
  */
 export const copyToClipboard = (str) => {
-  navigator.clipboard
-    .writeText(str)
-    .then(() => {
-      console.log("Text copied to clipboard:", str);
-    })
-    .catch((error) => {
-      console.error("Unable to copy text:", error);
-    });
+  navigator.clipboard.writeText(str);
 };
 
 /**
- * Handles a click event on a copy button. When the event is triggered, the
- * method copies the innerText of the first child element of the parent element
- * to the user's clipboard. It also changes the innerHTML of the button itself
- * to "Copied!" and changes it back to "Copy" after 2 seconds.
+ * Handles the click event on a copy button. Copies the text content
+ * of the first child of the clicked element's parent to the clipboard.
+ * Temporarily changes the button text to indicate the action was successful.
  *
- * @param {Event} evt - The event that triggered the method.
+ * @param {Object} target - The event target, typically the button element.
  */
-export function handleCopyClick(evt) {
-  const { children } = evt.target.parentElement;
-  const { innerText } = Array.from(children)[0];
-  copyToClipboard(innerText);
-  this.innerHTML = "Copied!";
-  // After 2 seconds, change the innerHTML back to "Copy"
+export function handleCopyClick({ target }) {
+  const textContent = target.parentElement.firstChild.textContent;
+  copyToClipboard(textContent);
+  const originalText = target.textContent;
+  target.textContent = "Copied!";
+  const timeout = 2000;
   setTimeout(() => {
-    this.innerHTML = "Copy";
-  }, 2000);
+    target.textContent = originalText;
+  }, timeout);
 }
 
 /**
