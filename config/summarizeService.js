@@ -18,8 +18,7 @@ export const fetchSummary = async (requestData) => {
     if (!response.ok) {
       throw new Error("Failed to fetch data");
     }
-    const data = await response.json();
-    return data;
+    return await response.json();
   } catch (error) {
     console.error("Error fetching summary:", error);
     throw error;

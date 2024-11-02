@@ -1,5 +1,5 @@
 import Link from "next/link";
-import DateElement from "./date";
+import DateElement from "./DateElement";
 import PropTypes from "prop-types";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -38,30 +38,34 @@ export default function ItemPost({
   return (
     <div
       key={id}
-      className="p-4 transition delay-150 duration-300 ease-in-out hover:-translate-y-1 hover:scale-105"
+      className="p-4 transition duration-300 ease-in-out delay-150 hover:-translate-y-1 hover:scale-105"
     >
-      <article className="flex h-full flex-col rounded-lg border border-gray-200 bg-white p-6 shadow-md dark:border-gray-700 dark:bg-gray-800">
-        <div className="mb-5 flex items-center justify-between text-gray-500">
-          <span className="bg-primary-100 text-primary-800 dark:bg-primary-200 dark:text-primary-800 inline-flex items-center justify-center rounded px-2.5 py-0.5 text-xl font-medium">
+      <article className="flex flex-col h-full p-6 bg-white border border-gray-200 rounded-lg shadow-md dark:border-gray-700 dark:bg-gray-800">
+        <div className="flex items-center justify-between mb-5 text-gray-500">
+          <span
+            className="bg-primary-100 text-primary-800 dark:bg-primary-200
+          dark:text-primary-800 inline-flex items-center justify-center
+          rounded px-2.5 py-0.5 text-xl font-medium"
+          >
             <svg
-              className="mb-1 mr-1 h-6 w-6"
+              className="w-6 h-6 mb-1 mr-1"
               fill="currentColor"
               viewBox="0 0 20 20"
               xmlns="http://www.w3.org/2000/svg"
             >
-              {getLanguageIcon({ language })}
+              {getLanguageIcon()}
             </svg>
           </span>
-          <span className="select-none text-xl">
+          <span className="text-xl select-none">
             <DateElement dateString={date} />
           </span>
         </div>
         <Link href={`/posts/${id}`}>
-          <h2 className="mb-2 cursor-pointer text-4xl font-bold tracking-tight text-gray-900 hover:underline dark:text-white">
+          <h2 className="mb-2 text-4xl font-bold tracking-tight text-gray-900 cursor-pointer hover:underline dark:text-white">
             {title}
           </h2>
         </Link>
-        <p className="mb-5 grow text-xl font-light text-gray-500 dark:text-gray-400">
+        <p className="mb-5 text-xl font-light text-gray-500 grow dark:text-gray-400">
           {description}
         </p>
         <div className="flex select-none">
@@ -78,7 +82,15 @@ export default function ItemPost({
       </article>
     </div>
   );
-  function getLanguageIcon({ language }) {
+
+  /**
+   * Returns a FontAwesomeIcon component representing the icon for the given programming language.
+   * The icon is determined based on the language's name.
+   *
+   * @returns {JSX.Element} A FontAwesomeIcon component for the specified language.
+   * If the language is not recognized, a default icon is returned.
+   */
+  function getLanguageIcon() {
     switch (language.toLowerCase()) {
       case "python":
         return <FontAwesomeIcon icon={faPython} />;
