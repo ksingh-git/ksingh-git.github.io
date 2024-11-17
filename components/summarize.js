@@ -14,7 +14,7 @@ import { fetchSummary } from "../config/summarizeService";
  * @param {string} props.content - The content to be summarized.
  * @returns {ReactElement} A button and modal interface for content summarization.
  */
-const Summarize = ({ content }) => {
+const Summarize = ({ title, content }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
   const [requestContent] = useState(
@@ -34,6 +34,7 @@ const Summarize = ({ content }) => {
     const requestContentData = requestContent + content;
     try {
       const requestData = {
+        title,
         text: requestContentData,
       };
       const data = await fetchSummary(requestData);
@@ -141,6 +142,7 @@ const Summarize = ({ content }) => {
 };
 
 Summarize.propTypes = {
+  title: PropTypes.string.isRequired,
   content: PropTypes.string.isRequired,
 };
 
