@@ -39,9 +39,9 @@ export default function Post({ postData }) {
       <Head>
         <title>{postData.title}</title>
       </Head>
-      <section className="bg-white min-w-min dark:bg-gray-900">
+      <section className="min-w-min bg-white dark:bg-gray-900">
         <div>
-          <div className="flex justify-between w-full cursor-pointer md:p-8">
+          <div className="flex w-full cursor-pointer justify-between md:p-8">
             {" "}
             <Link href={`/`}>
               <span className="p-2 text-2xl text-black dark:text-white md:pl-8">
@@ -52,13 +52,13 @@ export default function Post({ postData }) {
               <ThemeModeSvgComponent />
             </div>
           </div>
-          <div className="flex flex-col items-center w-full p-8 md:items-center lg:px-60">
+          <div className="flex w-full flex-col items-center p-8 md:items-center lg:px-60">
             <MarkDownWrapper>
-              <div className="flex flex-col items-center w-full">
+              <div className="flex w-full flex-col items-center">
                 <DateElement dateString={postData.date} />
                 <h1 className="text-center">{postData.title}</h1>
               </div>
-              <Summarize content={postData.contentHtml} />
+              <Summarize content={(postData.title, postData.contentHtml)} />
               <div dangerouslySetInnerHTML={{ __html: postData.contentHtml }} />
             </MarkDownWrapper>
           </div>
