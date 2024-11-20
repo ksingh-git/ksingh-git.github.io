@@ -58,7 +58,7 @@ export default function Post({ postData }) {
                 <DateElement dateString={postData.date} />
                 <h1 className="text-center">{postData.title}</h1>
               </div>
-              <Summarize content={(postData.title, postData.contentHtml)} />
+              <Summarize postData={postData} />
               <div dangerouslySetInnerHTML={{ __html: postData.contentHtml }} />
             </MarkDownWrapper>
           </div>
