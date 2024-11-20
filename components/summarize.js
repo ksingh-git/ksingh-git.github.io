@@ -21,7 +21,7 @@ const Summarize = ({ postData }) => {
     "Give me a summary in not more than 100 words : "
   );
   const [summary, setSummary] = useState("");
-  const modalRef = useRef(null); // Ref for modal content
+  const modalRef = useRef(null);
 
   /**
    * Opens the modal, sets loading state to true, and fetches a summary from an
@@ -72,17 +72,23 @@ const Summarize = ({ postData }) => {
       }
     };
 
+    /**
+     * Adds or removes the event listener for closing the modal when a click
+     * occurs outside of it. Also controls the body's overflow style to
+     * prevent or restore scrolling based on the modal's open state.
+     */
     if (isModalOpen) {
       document.addEventListener("mousedown", handleClickOutside);
-      document.body.style.overflow = "hidden"; // Prevent scrolling when modal is open
+      document.body.style.overflow = "hidden";
     } else {
       document.removeEventListener("mousedown", handleClickOutside);
-      document.body.style.overflow = "auto"; // Restore scrolling when modal is closed
+      document.body.style.overflow = "auto";
     }
 
     return () => {
       document.removeEventListener("mousedown", handleClickOutside);
-      document.body.style.overflow = "auto"; // Ensure scrolling is restored on unmount
+      // Ensure scrolling is restored on unmount
+      document.body.style.overflow = "auto";
     };
   }, [isModalOpen]);
 
@@ -91,7 +97,10 @@ const Summarize = ({ postData }) => {
       <button
         onClick={openModal}
         type="button"
-        className="rounded-full bg-blue-700 px-5 py-2.5 text-center text-sm font-medium text-white hover:bg-blue-800 focus:outline-none focus:ring-4 focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+        className="rounded-full bg-blue-700 px-5 py-2.5
+        text-center text-sm font-medium text-white hover:bg-blue-800
+        focus:outline-none focus:ring-4 focus:ring-blue-300 dark:bg-blue-600
+        dark:hover:bg-blue-700 dark:focus:ring-blue-800"
       >
         Summarize
       </button>
@@ -125,7 +134,11 @@ const Summarize = ({ postData }) => {
                     <button
                       onClick={closeModal}
                       type="button"
-                      className="rounded-lg border border-gray-200 bg-white px-5 py-2.5 text-sm font-medium text-gray-900 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:outline-none focus:ring-4 focus:ring-gray-100 dark:border-gray-600 dark:bg-gray-800 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white dark:focus:ring-gray-700"
+                      className="rounded-lg border border-gray-200 bg-white
+                      px-5 py-2.5 text-sm font-medium text-gray-900 hover:bg-gray-100
+                      hover:text-blue-700 focus:z-10 focus:outline-none focus:ring-4
+                      focus:ring-gray-100 dark:border-gray-600 dark:bg-gray-800 dark:text-gray-400
+                      dark:hover:bg-gray-700 dark:hover:text-white dark:focus:ring-gray-700"
                     >
                       Close
                     </button>
