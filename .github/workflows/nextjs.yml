@@ -40,21 +40,21 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: "18"
-          cache: ${{ steps.detect-package-manager.outputs.manager}}
+          node-version: "16"
+          cache: ${{ env.manager }}
 
       - name: Install dependencies
-        run: ${{ steps.detect-package-manager.outputs.manager }} ${{ steps.detect-package-manager.outputs.command }}
+        run: ${{ env.manager }} ${{ env.command }}
 
-      - name: Configure Next.js for static export
+      - name: Setup Next.js for static export
         run: |
           echo "module.exports = { output: 'export' };" > next.config.js
 
       - name: Build Next.js site
-        run: next build
+        run: ${{ env.runner }} next build
 
       - name: Export static site
-        run: next export
+        run: ${{ env.runner }} next export
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
