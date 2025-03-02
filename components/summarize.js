@@ -1,40 +1,23 @@
 import React, { useState, useEffect, useRef } from "react";
-import PropTypes from "prop-types";
 import TextSkeleton from "./textSkeleton";
 import { fetchSummary } from "../config/summarizeService";
 
-/**
- * A React component that provides a button to open a modal displaying a summary
- * of the provided content. The summary is fetched from an external API upon
- * clicking the button. The component manages loading state and handles modal
- * visibility. The modal can be dismissed by clicking outside or pressing the
- * close button.
- *
- * @param {Object} props
- * @param {string} props.content - The content to be summarized.
- * @returns {ReactElement} A button and modal interface for content summarization.
- */
-const Summarize = ({ postData }) => {
+const Summarize = ({ content }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
   const [requestContent] = useState(
     "Give me a summary in not more than 100 words : "
   );
   const [summary, setSummary] = useState("");
-  const modalRef = useRef(null);
+  const modalRef = useRef(null); // Ref for modal content
 
-  /**
-   * Opens the modal, sets loading state to true, and fetches a summary from an
-   * external API. If the request fails, it sets a default error message.
-   * Finally, it sets loading state to false.
-   */
   const openModal = async () => {
     setIsModalOpen(true);
     setIsLoading(true);
+    const requestContentData = requestContent + content;
     try {
       const requestData = {
-        id: postData.id,
-        text: requestContent + postData.contentHtml,
+        text: requestContentData,
       };
       const data = await fetchSummary(requestData);
       setSummary(data.text);
@@ -46,21 +29,11 @@ const Summarize = ({ postData }) => {
     }
   };
 
-  /**
-   * Closes the modal by setting isModalOpen to false.
-   */
   const closeModal = () => {
     setIsModalOpen(false);
   };
 
   useEffect(() => {
-    /**
-     * Handles a click event outside the modal to close it. If the element clicked
-     * is not the modal content and not a child of the modal, it calls closeModal
-     * to close the modal.
-     *
-     * @param {Event} event - The click event.
-     */
     const handleClickOutside = (event) => {
       if (
         isModalOpen &&
@@ -72,23 +45,17 @@ const Summarize = ({ postData }) => {
       }
     };
 
-    /**
-     * Adds or removes the event listener for closing the modal when a click
-     * occurs outside of it. Also controls the body's overflow style to
-     * prevent or restore scrolling based on the modal's open state.
-     */
     if (isModalOpen) {
       document.addEventListener("mousedown", handleClickOutside);
-      document.body.style.overflow = "hidden";
+      document.body.style.overflow = "hidden"; // Prevent scrolling when modal is open
     } else {
       document.removeEventListener("mousedown", handleClickOutside);
-      document.body.style.overflow = "auto";
+      document.body.style.overflow = "auto"; // Restore scrolling when modal is closed
     }
 
     return () => {
       document.removeEventListener("mousedown", handleClickOutside);
-      // Ensure scrolling is restored on unmount
-      document.body.style.overflow = "auto";
+      document.body.style.overflow = "auto"; // Ensure scrolling is restored on unmount
     };
   }, [isModalOpen]);
 
@@ -97,10 +64,7 @@ const Summarize = ({ postData }) => {
       <button
         onClick={openModal}
         type="button"
-        className="rounded-full bg-blue-700 px-5 py-2.5
-        text-center text-sm font-medium text-white hover:bg-blue-800
-        focus:outline-none focus:ring-4 focus:ring-blue-300 dark:bg-blue-600
-        dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+        className="rounded-full bg-blue-700 px-5 py-2.5 text-center text-sm font-medium text-white hover:bg-blue-800 focus:outline-none focus:ring-4 focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
       >
         Summarize
       </button>
@@ -134,11 +98,7 @@ const Summarize = ({ postData }) => {
                     <button
                       onClick={closeModal}
                       type="button"
-                      className="rounded-lg border border-gray-200 bg-white
-                      px-5 py-2.5 text-sm font-medium text-gray-900 hover:bg-gray-100
-                      hover:text-blue-700 focus:z-10 focus:outline-none focus:ring-4
-                      focus:ring-gray-100 dark:border-gray-600 dark:bg-gray-800 dark:text-gray-400
-                      dark:hover:bg-gray-700 dark:hover:text-white dark:focus:ring-gray-700"
+                      className="rounded-lg border border-gray-200 bg-white px-5 py-2.5 text-sm font-medium text-gray-900 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:outline-none focus:ring-4 focus:ring-gray-100 dark:border-gray-600 dark:bg-gray-800 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white dark:focus:ring-gray-700"
                     >
                       Close
                     </button>
@@ -151,10 +111,6 @@ const Summarize = ({ postData }) => {
       )}
     </div>
   );
-};
-
-Summarize.propTypes = {
-  postData: PropTypes.object,
 };
 
 export default Summarize;
