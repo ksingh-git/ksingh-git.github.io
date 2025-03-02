@@ -24,7 +24,7 @@ import Summarize from "../../components/summarize";
 export default function Post({ postData }) {
   useEffect(() => {
     hljs.configure({
-      languages: ["python"],
+      languages: ["python", "java", "xml"],
     });
     hljs.highlightAll();
 
