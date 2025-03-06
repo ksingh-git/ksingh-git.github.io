@@ -1,2 +1,3 @@
 ## Personal Website
-https://codingstuff-github.github.io/
+
+https://ksingh-git.github.io/
