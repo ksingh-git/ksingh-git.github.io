@@ -14,7 +14,7 @@ export default function Layout({ children }) {
           href="https://img.icons8.com/emoji/256/four-leaf-clover.png"
         />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
         <link
           href="https://fonts.googleapis.com/css2?family=Indie+Flower&family=Whisper&display=swap"
           rel="stylesheet"

@@ -1,6 +1,9 @@
-export const images = {
-  unoptimized: true,
-};
-export const devIndicators = {
-  buildActivity: false,
+module.exports = {
+  assetPrefix: "",
+  images: {
+    unoptimized: true,
+  },
+  devIndicators: {
+    buildActivity: false,
+  },
 };
