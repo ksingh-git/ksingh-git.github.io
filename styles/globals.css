@@ -1,8 +1,8 @@
 body {
-  font-family: "Indie Flower";
+  font-family: "Indie Flower", cursive;
 }
 h1 {
-  font-family: "Whisper" !important;
+  font-family: "Whisper", sans-serif !important;
 }
 button,
 a,
