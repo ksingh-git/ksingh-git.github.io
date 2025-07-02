@@ -1,5 +1,5 @@
 export const fetchSummary = async (requestData) => {
-  const API_URL = "https://gemini-api-snippet-blog.onrender.com/summarize";
+  const API_URL = "https://gemini-api-snippet-blog.onrender.com/api/summarize";
   try {
     const response = await fetch(API_URL, {
       method: "POST",
