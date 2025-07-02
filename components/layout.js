@@ -19,6 +19,10 @@ export default function Layout({ children }) {
           href="https://fonts.googleapis.com/css2?family=Indie+Flower&family=Whisper&display=swap"
           rel="stylesheet"
         />
+        <script
+          src="https://unpkg.com/@dotlottie/player-component@2.7.12/dist/dotlottie-player.mjs"
+          type="module"
+        ></script>
       </Head>
       <div id="main-container" className={theme}>
         {children}

@@ -1,10 +1,9 @@
-import Link from "next/link";
-export default function Portfolio() {
+import Layout from "../components/layout";
+import Hero from "../ui/hero";
+export default function Home() {
   return (
-    <div>
-      <h1>My Portfolio</h1>
-      <p>Welcome to my portfolio page!</p>
-      <Link href="/blog">Go to Blog</Link>
-    </div>
+    <Layout>
+      <Hero />
+    </Layout>
   );
 }
