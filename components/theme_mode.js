@@ -19,6 +19,11 @@ function ThemeModeSvgComponent(props) {
     setTheme(localStorage.getItem("theme"));
     const element = document.getElementById("main-container");
     element.classList.add(theme);
+    if (element.classList.contains("dark")) {
+      localStorage.setItem("theme", "dark");
+    } else {
+      localStorage.setItem("theme", "light");
+    }
   });
 
   return (
