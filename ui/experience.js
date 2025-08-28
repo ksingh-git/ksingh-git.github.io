@@ -1,6 +1,6 @@
 const Experience = () => {
     return (<div className="relative flex w-full justify-center bg-white dark:bg-gray-900">
-        <div className="mx-auto my-12 max-w-screen-lg px-4 py-8 md:my-16 lg:px-6 lg:py-16">
+        <div className="mx-auto max-w-screen-lg px-4 py-8 md:my-16 lg:px-6">
 
             {/* Section Title */}
             <div className="mb-12 text-center">
@@ -9,7 +9,8 @@ const Experience = () => {
                 </h2>
                 <figure className="max-w-screen-lg mx-auto text-center">
                     <blockquote>
-                        <p className="text-2xl text-gray-900 dark:text-white">"Experience is the teacher of all things." - Julius Caesar</p>
+                        <p className="text-2xl text-gray-900 dark:text-white">"Experience is the teacher of all things."
+                            - Julius Caesar</p>
                     </blockquote>
                 </figure>
             </div>
@@ -36,10 +37,16 @@ const Experience = () => {
                         className="block mb-3 text-base font-light leading-none text-gray-500 dark:text-gray-400 md:text-lg">
                         Capgemini • Oct 2022 – Present
                     </time>
-                    <p className="text-base font-light text-gray-500 dark:text-gray-400 md:text-lg lg:text-xl">
-                        Focused on software engineering, data structures, and full-stack
-                        development.
-                    </p>
+                    <ul className="ml-6 list-disc text-base font-light text-gray-500 dark:text-gray-400 md:text-lg lg:text-xl">
+                        <li>Developed extensible Java utilities to support test automation frameworks and improving
+                            maintainability.
+                        </li>
+                        <li>Automated UI workflows and API validations for financial applications, increasing efficiency
+                            by 30%.
+                        </li>
+                        <li>Built a Java-based PDF parser to auto-validate customer data, reducing manual work by 70%.
+                        </li>
+                    </ul>
                 </li>
 
                 {/* High School */}
@@ -63,9 +70,13 @@ const Experience = () => {
                         className="block mb-3 text-base font-light leading-none text-gray-500 dark:text-gray-400 md:text-lg">
                         Capgemini • Jan 2022 – Apr 2022
                     </time>
-                    <p className="text-base font-light text-gray-500 dark:text-gray-400 md:text-lg lg:text-xl">
-                        Specialized in Science stream with Mathematics and Computer Science.
-                    </p>
+                    <ul className="ml-6 list-disc text-base font-light text-gray-500 dark:text-gray-400 md:text-lg lg:text-xl">
+                        <li>Gained hands-on experience in Java, Python, SQL, and automation testing.</li>
+                        <li>Assisted in building proof-of-concept automation scripts for internal projects.</li>
+                        <li>Collaborated with senior engineers to learn Agile methodologies,and software engineering.
+                        </li>
+
+                    </ul>
                 </li>
             </ol>
         </div>

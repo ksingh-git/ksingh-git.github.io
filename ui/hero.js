@@ -1,4 +1,9 @@
 import ThemeModeSvgComponent from "../components/theme_mode";
+import Linkedin from "../icons/linkedin";
+import Github from "../icons/github";
+import Leetcode from "../icons/leetcode";
+import Hackerrank from "../icons/hackerrank";
+import BlogIcon from "../icons/blogIcon";
 
 const Hero = () => {
     return (<div
@@ -20,6 +25,44 @@ const Hero = () => {
                     Software Engineer with a passion for building scalable web
                     applications and working across the full stack.
                 </p>
+                <ul className="flex justify-center lg:justify-start space-x-4 sm:mt-0">
+
+                    <li>
+                        <a href="#" title={"Linkedin"} target="_blank"
+                           rel="noopener noreferrer"
+                           className="text-gray-500 hover:text-gray-900 dark:hover:text-white">
+                            <Linkedin/>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" title={"Github"} target="_blank"
+                           rel="noopener noreferrer"
+                           className="text-gray-500 hover:text-gray-900 dark:hover:text-white">
+                            <Github/>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" title={"Leetcode"} target="_blank"
+                           rel="noopener noreferrer"
+                           className="text-gray-500 hover:text-gray-900 dark:hover:text-white">
+                            <Leetcode/>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" title={"Hackerrank"} target="_blank"
+                           rel="noopener noreferrer"
+                           className="text-gray-500 hover:text-gray-900 dark:hover:text-white">
+                            <Hackerrank/>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/blog" title={"Blog"} target="_blank"
+                           rel="noopener noreferrer"
+                           className="text-gray-500 hover:text-gray-900 dark:hover:text-white">
+                            <BlogIcon/>
+                        </a>
+                    </li>
+                </ul>
             </div>
 
             {/* Animation Section */}

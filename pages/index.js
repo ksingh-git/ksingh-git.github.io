@@ -4,10 +4,21 @@ import Experience from "../ui/experience";
 import Education from "../ui/education";
 
 export default function Home() {
-
     return (<Layout>
-        <Hero/>
-        <Experience/>
-        <Education/>
+        {/* Scroll container */}
+        <div className="snap-none lg:h-screen lg:snap-y lg:snap-mandatory lg:overflow-y-scroll">
+            {/* Each section should fill screen height and snap */}
+            <section className="lg:h-screen lg:snap-start">
+                <Hero/>
+            </section>
+
+            <section className="lg:h-screen lg:snap-start">
+                <Experience/>
+            </section>
+
+            <section className="lg:h-screen lg:snap-start">
+                <Education/>
+            </section>
+        </div>
     </Layout>);
 }
