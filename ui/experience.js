@@ -1,11 +1,18 @@
 const Experience = () => {
     return (<div className="relative flex w-full justify-center bg-white dark:bg-gray-900">
-        <div className="mx-auto my-12 max-w-screen-md px-4 py-8 md:my-16 lg:px-6 lg:py-16">
+        <div className="mx-auto my-12 max-w-screen-lg px-4 py-8 md:my-16 lg:px-6 lg:py-16">
 
             {/* Section Title */}
-            <h1 className="mb-16 text-center text-5xl font-extrabold tracking-tight text-gray-900 dark:text-white md:text-6xl xl:text-8xl">
-                Experience
-            </h1>
+            <div className="mb-12 text-center">
+                <h2 className="text-4xl font-extrabold tracking-tight text-gray-900 dark:text-white md:text-5xl">
+                    Experience
+                </h2>
+                <figure className="max-w-screen-lg mx-auto text-center">
+                    <blockquote>
+                        <p className="text-2xl text-gray-900 dark:text-white">"Experience is the teacher of all things." - Julius Caesar</p>
+                    </blockquote>
+                </figure>
+            </div>
 
             <ol className="relative border-s border-gray-200 dark:border-gray-700">
                 {/* Recent Exp */}

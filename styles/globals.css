@@ -1,9 +1,13 @@
 body {
-    font-family: "Indie Flower";
+    font-family: "Indie Flower", serif;
 }
 
 h1 {
-    font-family: "Whisper" !important;
+    font-family: "Whisper", serif !important;
+}
+
+blockquote {
+    font-family: "Allura", cursive !important;
 }
 
 button,
@@ -47,6 +51,6 @@ pre button {
 @tailwind components;
 @tailwind utilities;
 
-/* * {
-  border: gray 1px solid;
-} */
+* {
+    border: gray 1px solid;
+}
