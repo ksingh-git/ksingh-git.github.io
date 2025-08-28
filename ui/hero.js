@@ -21,7 +21,6 @@ const Hero = () => {
             <div className="hidden lg:col-span-5 lg:mt-0 lg:flex">
               <dotlottie-player
                 src="https://lottie.host/a4b45020-cc3d-479b-b9c9-bea4ef720150/4bQEIJFbo8.lottie"
-                background="transparent"
                 speed="1"
                 className="w-100 h-100"
                 loop
