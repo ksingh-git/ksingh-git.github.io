@@ -1,41 +1,48 @@
 body {
-  font-family: "Indie Flower";
+    font-family: "Indie Flower";
 }
+
 h1 {
-  font-family: "Whisper" !important;
+    font-family: "Whisper" !important;
 }
+
 button,
 a,
 span,
 div {
-  -webkit-tap-highlight-color: transparent;
+    -webkit-tap-highlight-color: transparent;
 }
+
 pre {
-  position: relative;
-  white-space: pre-wrap;
+    position: relative;
+    white-space: pre-wrap;
 }
+
 pre code {
-  background-color: transparent !important;
+    background-color: transparent !important;
 }
+
 pre button {
-  color: #adb5bd;
-  box-sizing: border-box;
-  transition: 0.2s ease-out;
-  cursor: pointer;
-  user-select: none;
-  background: rgba(0, 0, 0, 0.15);
-  border: 1px solid rgba(0, 0, 0, 0);
-  padding: 5px 10px;
-  font-size: 0.8em;
-  position: absolute;
-  top: 0;
-  right: 0;
-  border-radius: 0 0.15rem;
+    color: #adb5bd;
+    box-sizing: border-box;
+    transition: 0.2s ease-out;
+    cursor: pointer;
+    user-select: none;
+    background: rgba(0, 0, 0, 0.15);
+    border: 1px solid rgba(0, 0, 0, 0);
+    padding: 5px 10px;
+    font-size: 0.8em;
+    position: absolute;
+    top: 0;
+    right: 0;
+    border-radius: 0 0.15rem;
 }
+
 /* Hide scrollbar for webkit browsers */
 .scrollbar-hide::-webkit-scrollbar {
-  display: none;
+    display: none;
 }
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
