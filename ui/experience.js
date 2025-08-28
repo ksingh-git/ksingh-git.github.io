@@ -8,58 +8,56 @@ const Experience = () => {
             </h1>
 
             <ol className="relative border-s border-gray-200 dark:border-gray-700">
-
-                {/* Experience 1 */}
+                {/* Recent Exp */}
                 <li className="mb-12 ms-6">
             <span
-                className="absolute -start-3 flex h-6 w-6 items-center justify-center rounded-full bg-purple-100 ring-8 ring-white dark:bg-purple-900 dark:ring-gray-900">
+                className="absolute -start-3 flex h-6 w-6 items-center justify-center rounded-full bg-blue-100 ring-8 ring-white dark:bg-blue-900 dark:ring-gray-900">
               <svg
-                  className="h-2.5 w-2.5 text-purple-800 dark:text-purple-300"
+                  className="h-2.5 w-2.5 text-blue-800 dark:text-blue-300"
                   xmlns="http://www.w3.org/2000/svg"
                   fill="currentColor"
                   viewBox="0 0 20 20"
               >
                 <path
-                    d="M6 2a1 1 0 0 0-1 1v1H3a2 2 0 0 0-2 2v1h18V6a2 2 0 0 0-2-2h-2V3a1 1 0 1 0-2 0v1H7V3a1 1 0 0 0-1-1ZM0 9v7a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9H0Zm5 2h10a1 1 0 1 1 0 2H5a1 1 0 0 1 0-2Z"/>
+                    d="M20 4a2 2 0 0 0-2-2h-2V1a1 1 0 0 0-2 0v1h-3V1a1 1 0 0 0-2 0v1H6V1a1 1 0 0 0-2 0v1H2a2 2 0 0 0-2 2v2h20V4ZM0 18a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8H0v10Zm5-8h10a1 1 0 0 1 0 2H5a1 1 0 0 1 0-2Z"/>
               </svg>
             </span>
                     <h3 className="mb-2 text-2xl font-bold text-gray-900 dark:text-white md:text-3xl">
-                        Software Engineer – Company A
+                        Software Engineer
                     </h3>
                     <time
                         className="block mb-3 text-base font-light leading-none text-gray-500 dark:text-gray-400 md:text-lg">
-                        2022 – Present
+                        Capgemini • Oct 2022 – Present
                     </time>
                     <p className="text-base font-light text-gray-500 dark:text-gray-400 md:text-lg lg:text-xl">
-                        Working on full-stack applications, optimizing backend APIs, and
-                        leading feature development for scalable systems.
+                        Focused on software engineering, data structures, and full-stack
+                        development.
                     </p>
                 </li>
 
-                {/* Experience 2 */}
+                {/* High School */}
                 <li className="mb-12 ms-6">
             <span
-                className="absolute -start-3 flex h-6 w-6 items-center justify-center rounded-full bg-yellow-100 ring-8 ring-white dark:bg-yellow-900 dark:ring-gray-900">
+                className="absolute -start-3 flex h-6 w-6 items-center justify-center rounded-full bg-green-100 ring-8 ring-white dark:bg-green-900 dark:ring-gray-900">
               <svg
-                  className="h-2.5 w-2.5 text-yellow-800 dark:text-yellow-300"
+                  className="h-2.5 w-2.5 text-green-800 dark:text-green-300"
                   xmlns="http://www.w3.org/2000/svg"
                   fill="currentColor"
                   viewBox="0 0 20 20"
               >
                 <path
-                    d="M6 2a1 1 0 0 0-1 1v1H3a2 2 0 0 0-2 2v1h18V6a2 2 0 0 0-2-2h-2V3a1 1 0 1 0-2 0v1H7V3a1 1 0 0 0-1-1ZM0 9v7a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9H0Zm5 2h10a1 1 0 1 1 0 2H5a1 1 0 0 1 0-2Z"/>
+                    d="M20 4a2 2 0 0 0-2-2h-2V1a1 1 0 0 0-2 0v1h-3V1a1 1 0 0 0-2 0v1H6V1a1 1 0 0 0-2 0v1H2a2 2 0 0 0-2 2v2h20V4ZM0 18a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8H0v10Zm5-8h10a1 1 0 0 1 0 2H5a1 1 0 0 1 0-2Z"/>
               </svg>
             </span>
                     <h3 className="mb-2 text-2xl font-bold text-gray-900 dark:text-white md:text-3xl">
-                        Intern – Company B
+                        Software Trainee
                     </h3>
                     <time
                         className="block mb-3 text-base font-light leading-none text-gray-500 dark:text-gray-400 md:text-lg">
-                        Jan 2021 – Dec 2021
+                        Capgemini • Jan 2022 – Apr 2022
                     </time>
                     <p className="text-base font-light text-gray-500 dark:text-gray-400 md:text-lg lg:text-xl">
-                        Built internal tools, collaborated with the engineering team, and
-                        gained hands-on experience in modern web development.
+                        Specialized in Science stream with Mathematics and Computer Science.
                     </p>
                 </li>
             </ol>
