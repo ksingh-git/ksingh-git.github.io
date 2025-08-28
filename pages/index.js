@@ -51,7 +51,7 @@ export default function Home() {
     }, []);
 
     return (<Layout>
-        <div className="h-screen overflow-y-scroll scroll-smooth snap-y snap-mandatory">
+        <div className="h-screen overflow-y-scroll scroll-smooth snap-y snap-mandatory bg-white dark:bg-gray-900">
             <section className="snap-start min-h-screen flex items-center justify-center">
                 <Hero/>
             </section>
