@@ -6,40 +6,48 @@ import Education from "../ui/education";
 
 export default function Home() {
     useEffect(() => {
+        const sections = Array.from(document.querySelectorAll("section"));
+        let currentIndex = 0;
         let isScrolling = false;
-        const SCROLL_THRESHOLD = 50; // Minimum wheel delta to trigger section change
+        const SCROLL_DURATION = 700; // match scroll duration
+        const SCROLL_THRESHOLD = 50;
+
+        const scrollToIndex = (index) => {
+            index = Math.max(0, Math.min(index, sections.length - 1));
+            currentIndex = index;
+            sections[index].scrollIntoView({behavior: "smooth"});
+            isScrolling = true;
+            setTimeout(() => {
+                isScrolling = false;
+            }, SCROLL_DURATION);
+        };
 
         const handleWheel = (e) => {
             if (isScrolling) return;
+            if (Math.abs(e.deltaY) < SCROLL_THRESHOLD) return;
 
-            if (Math.abs(e.deltaY) < SCROLL_THRESHOLD) return; // ignore small scrolls
+            const targetIndex = currentIndex + (e.deltaY > 0 ? 1 : -1);
+            scrollToIndex(targetIndex);
+        };
 
-            isScrolling = true;
+        const handleKeyDown = (e) => {
+            if (isScrolling) return;
 
-            const sections = document.querySelectorAll("section");
-            const scrollTop = window.scrollY;
-            const windowHeight = window.innerHeight;
+            let targetIndex = currentIndex;
 
-            let targetIndex = 0;
+            if (e.key === "ArrowDown") targetIndex += 1;
+            if (e.key === "ArrowUp") targetIndex -= 1;
 
-            sections.forEach((section, index) => {
-                const offsetTop = section.offsetTop;
-                if (scrollTop >= offsetTop - windowHeight / 2) {
-                    targetIndex = index + (e.deltaY > 0 ? 1 : -1);
-                }
-            });
-
-            targetIndex = Math.max(0, Math.min(targetIndex, sections.length - 1));
-
-            sections[targetIndex].scrollIntoView({behavior: "smooth"});
-
-            setTimeout(() => {
-                isScrolling = false;
-            }, 700); // slightly longer to match smooth scroll
+            scrollToIndex(targetIndex);
         };
 
         window.addEventListener("wheel", handleWheel, {passive: false});
-        return () => window.removeEventListener("wheel", handleWheel);
+        window.addEventListener("keydown", handleKeyDown);
+
+        return () => {
+            window.removeEventListener("wheel", handleWheel);
+            window.removeEventListener("keydown", handleKeyDown);
+        };
     }, []);
 
     return (<Layout>
