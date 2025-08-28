@@ -26,10 +26,10 @@ const Education2 = () => {
                     </div>
                     <div className="grid grid-cols-2 gap-4 mt-8">
                         <img className="w-full rounded-lg"
-                             src="https://github.com/ksingh-git/ksingh-git.github.io/blob/main/public/images/Terna1.webp"
+                             src="https://raw.githubusercontent.com/ksingh-git/ksingh-git.github.io/refs/heads/main/public/images/Terna1.jpg"
                              alt="office content 1"/>
                         <img className="mt-4 w-full lg:mt-10 rounded-lg"
-                             src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/content/office-long-1.png"
+                             src="https://raw.githubusercontent.com/ksingh-git/ksingh-git.github.io/refs/heads/main/public/images/Terna2.jpg"
                              alt="office content 2"/>
                     </div>
                 </div>

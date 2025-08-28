@@ -51,6 +51,6 @@ pre button {
 @tailwind components;
 @tailwind utilities;
 
-* {
+/* * {
     border: gray 1px solid;
-}
+} */
