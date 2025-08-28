@@ -3,13 +3,13 @@ import ThemeModeSvgComponent from "../components/theme_mode";
 const Hero = () => {
     return (<div
         className="relative flex h-full min-w-min cursor-default justify-center bg-white dark:bg-gray-900 md:w-full">
+        {/* Theme Toggle */}
+        <div className="absolute right-4 top-4">
+            <ThemeModeSvgComponent className="cursor-pointer"/>
+        </div>
         <div
             className="relative mx-auto my-8 flex max-w-screen-xl flex-col items-center px-4 py-8 md:m-8 lg:flex-row lg:items-center lg:justify-between lg:px-6 lg:py-16">
 
-            {/* Theme Toggle */}
-            <div className="absolute right-2 top-2">
-                <ThemeModeSvgComponent className="cursor-pointer"/>
-            </div>
 
             {/* Text Section */}
             <div className="flex-1 text-center lg:text-left mt-12 lg:mt-0">
