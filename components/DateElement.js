@@ -1,4 +1,4 @@
-import { parseISO, format } from "date-fns";
+import {parseISO, format} from "date-fns";
 import PropTypes from "prop-types";
 
 /**
@@ -6,11 +6,11 @@ import PropTypes from "prop-types";
  * @param {{ dateString: string }} props
  * @returns {JSX.Element}
  */
-export default function DateElement({ dateString }) {
-  const date = parseISO(dateString);
-  return <time dateTime={dateString}>{format(date, "LLLL d, yyyy")}</time>;
+export default function DateElement({dateString}) {
+    const date = parseISO(dateString);
+    return <time dateTime={dateString}>{format(date, "LLLL d, yyyy")}</time>;
 }
 
 DateElement.propTypes = {
-  dateString: PropTypes.string.isRequired,
+    dateString: PropTypes.string.isRequired,
 };

@@ -28,21 +28,15 @@ function ThemeModeSvgComponent(props) {
         }
     });
 
-    return (
-        <>
-            <button
-                onClick={() => {
-                    darkMode();
-                }}
-            >
-                {theme === "light" ? (
-                    <DarkModeSvgComponent/>
-                ) : (
-                    <LightModeSvgComponent/>
-                )}
-            </button>
-        </>
-    );
+    return (<>
+        <button
+            onClick={() => {
+                darkMode();
+            }}
+        >
+            {theme === "light" ? (<DarkModeSvgComponent/>) : (<LightModeSvgComponent/>)}
+        </button>
+    </>);
 }
 
 export default ThemeModeSvgComponent;

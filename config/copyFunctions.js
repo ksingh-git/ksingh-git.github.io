@@ -4,7 +4,7 @@
  * @param {string} str - The string to be copied.
  */
 export const copyToClipboard = (str) => {
-  navigator.clipboard.writeText(str);
+    navigator.clipboard.writeText(str);
 };
 
 /**
@@ -14,15 +14,15 @@ export const copyToClipboard = (str) => {
  *
  * @param {Object} target - The event target, typically the button element.
  */
-export function handleCopyClick({ target }) {
-  const textContent = target.parentElement.firstChild.textContent;
-  copyToClipboard(textContent);
-  const originalText = target.textContent;
-  target.textContent = "Copied!";
-  const timeout = 2000;
-  setTimeout(() => {
-    target.textContent = originalText;
-  }, timeout);
+export function handleCopyClick({target}) {
+    const textContent = target.parentElement.firstChild.textContent;
+    copyToClipboard(textContent);
+    const originalText = target.textContent;
+    target.textContent = "Copied!";
+    const timeout = 2000;
+    setTimeout(() => {
+        target.textContent = originalText;
+    }, timeout);
 }
 
 /**
@@ -31,9 +31,9 @@ export function handleCopyClick({ target }) {
  * @returns {HTMLButtonElement} - The created button element.
  */
 export function addButtonToPre() {
-  const copy = document.createElement("button");
-  copy.innerHTML = "Copy";
-  copy.classList.add("copy-button");
-  copy.addEventListener("click", handleCopyClick);
-  return copy;
+    const copy = document.createElement("button");
+    copy.innerHTML = "Copy";
+    copy.classList.add("copy-button");
+    copy.addEventListener("click", handleCopyClick);
+    return copy;
 }
