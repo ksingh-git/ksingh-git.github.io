@@ -32,8 +32,7 @@ export default function Post({ postData }) {
       <section className="min-w-min bg-white dark:bg-gray-900">
         <div>
           <div className="flex w-full cursor-pointer justify-between md:p-8">
-            {" "}
-            <Link href={`/`}>
+            <Link href={`/blog`}>
               <span className="p-2 text-2xl text-black dark:text-white md:pl-8">
                 {"<"} Back to Home
               </span>
