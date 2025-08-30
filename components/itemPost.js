@@ -19,10 +19,11 @@ export default function ItemPost({
                                  }) {
     return (<div
         key={id}
-        className="p-4 transition delay-150 duration-300 ease-in-out hover:-translate-y-1 hover:scale-105"
+        className="w-full p-4 transition delay-150 duration-300 ease-in-out hover:-translate-y-1 hover:scale-105"
     >
         <article
-            className="flex h-full flex-col rounded-lg border border-gray-200 bg-white p-6 shadow-md dark:border-gray-700 dark:bg-gray-800">
+            className="flex h-full w-full flex-col rounded-lg border border-gray-200 bg-white p-6 shadow-md dark:border-gray-700 dark:bg-gray-800">
+            {/* Top row */}
             <div className="mb-5 flex items-center justify-between text-gray-500">
           <span
               className="bg-primary-100 text-primary-800 dark:bg-primary-200 dark:text-primary-800 inline-flex items-center justify-center rounded px-2.5 py-0.5 text-xl font-medium">
@@ -39,23 +40,27 @@ export default function ItemPost({
             <Date dateString={date}/>
           </span>
             </div>
-            <Link href={`/posts/${id}`}>
+
+            {/* Title */}
+            <Link href={`/posts/${id}`} className="block w-full">
                 <h2 className="mb-2 cursor-pointer text-4xl font-bold tracking-tight text-gray-900 hover:underline dark:text-white">
                     {title}
                 </h2>
             </Link>
+
+            {/* Description */}
             <p className="mb-5 grow text-xl font-light text-gray-500 dark:text-gray-400">
                 {description}
             </p>
-            <div className="flex select-none">
-                {categories.map((category) => (<span className="p-2" key={category}>
-              <Link key={category} href={`/category/${category}`}>
-                <span
-                    className="text-s mr-2 rounded bg-gray-100 px-2.5 py-0.5 font-semibold text-gray-800 dark:bg-gray-700 dark:text-gray-300">
-                  #{category}
-                </span>
-              </Link>
-            </span>))}
+
+            {/* Categories */}
+            <div className="flex flex-wrap gap-2 select-none">
+                {categories.map((category) => (<Link key={category} href={`/category/${category}`}>
+              <span
+                  className="text-s mr-2 rounded bg-gray-100 px-2.5 py-0.5 font-semibold text-gray-800 dark:bg-gray-700 dark:text-gray-300">
+                #{category}
+              </span>
+                </Link>))}
             </div>
         </article>
     </div>);
