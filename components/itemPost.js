@@ -29,8 +29,6 @@ export default function ItemPost({
               className="bg-primary-100 text-primary-800 dark:bg-primary-200 dark:text-primary-800 inline-flex items-center justify-center rounded px-2.5 py-0.5 text-xl font-medium">
             <span
                 className="mb-1 mr-1 h-6 w-6"
-                fill="currentColor"
-                viewBox="0 0 20 20"
                 xmlns="http://www.w3.org/2000/svg"
             >
               {getLanguageIcon({language})}
