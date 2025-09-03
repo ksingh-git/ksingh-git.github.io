@@ -2,6 +2,7 @@ import Layout from "../components/layout";
 import Hero from "../ui/hero";
 import Experience from "../ui/experience";
 import Education from "../ui/education";
+import Projects from "../ui/projects";
 
 export default function Home() {
     return (<Layout>
@@ -17,6 +18,9 @@ export default function Home() {
             </section>
             <section className="content-center lg:h-screen lg:snap-start">
                 <Education/>
+            </section>
+            <section className="content-center lg:h-screen lg:snap-start">
+                <Projects/>
             </section>
         </div>
     </Layout>);
