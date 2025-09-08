@@ -29,7 +29,7 @@ function ThemeModeSvgComponent(props) {
     });
 
     return (<>
-        <button
+        <button className="z-auto -h-6 -w-6"
             onClick={() => {
                 darkMode();
             }}
