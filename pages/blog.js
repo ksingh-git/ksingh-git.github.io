@@ -73,7 +73,7 @@ export default function Home({allPostsData, allCategories}) {
                             type="button"
                             className={`rounded-full border px-4 py-2 text-sm sm:text-base font-medium transition ${selectedCategory === category ? "text-blue-700 ring-2 ring-gray-400 dark:text-white dark:ring-gray-700" : "text-gray-900 dark:text-gray-400"} bg-white hover:bg-gray-100 dark:border-gray-600 dark:bg-gray-800 dark:hover:bg-gray-700 dark:hover:text-white`}
                         >
-                            {category}
+                            {category.toUpperCase()}
                         </button>
                     </li>))}
                 </ul>
