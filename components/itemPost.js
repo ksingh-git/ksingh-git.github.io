@@ -13,6 +13,7 @@ import AiIcon from "../icons/language/aiIcon";
 import DefaultIcon from "../icons/language/defaultIcon";
 import SecurityIcon from "../icons/language/securityIcon";
 import JavaIcon from "../icons/language/javaIcon";
+import DesignIcon from "../icons/language/designIcon";
 
 export default function ItemPost({
                                      id, date, title, description, language, categories,
@@ -91,6 +92,8 @@ export default function ItemPost({
                 return <AiIcon/>;
             case "java":
                 return <JavaIcon/>;
+            case "design":
+                return <DesignIcon/>;
             default:
                 return <DefaultIcon/>;
         }
