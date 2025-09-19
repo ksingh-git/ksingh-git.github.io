@@ -20,8 +20,7 @@ export default ({children}) => {
     }, []);
 
     if (!isOnline) {
-        return (<div
-            className="flex h-screen items-center justify-center bg-gray-100 text-center bg-white dark:bg-gray-900 h-screen w-screen flex items-center justify-center">
+        return (<div className="flex h-screen items-center justify-center bg-gray-100 text-center">
             <div className="p-6 rounded-2xl shadow-lg bg-white">
                 <h1 className="text-2xl font-bold">You are offline</h1>
                 <p className="text-gray-600 mt-2">Check your internet connection and try again.</p>
