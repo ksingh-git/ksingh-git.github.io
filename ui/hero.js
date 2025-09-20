@@ -28,28 +28,28 @@ const Hero = () => {
                 <ul className="flex justify-center lg:justify-start space-x-4 sm:mt-0">
 
                     <li>
-                        <a href="#" title={"Linkedin"} target="_blank"
+                        <a href="https://www.linkedin.com/in/kamalsingh-ln/" title={"Linkedin"} target="_blank"
                            rel="noopener noreferrer"
                            className="text-gray-500 hover:text-gray-900 dark:hover:text-white">
                             <Linkedin/>
                         </a>
                     </li>
                     <li>
-                        <a href="#" title={"Github"} target="_blank"
+                        <a href="https://github.com/ksingh-git/" title={"Github"} target="_blank"
                            rel="noopener noreferrer"
                            className="text-gray-500 hover:text-gray-900 dark:hover:text-white">
                             <Github/>
                         </a>
                     </li>
                     <li>
-                        <a href="#" title={"Leetcode"} target="_blank"
+                        <a href="https://leetcode.com/u/kamsingh-leet/" title={"Leetcode"} target="_blank"
                            rel="noopener noreferrer"
                            className="text-gray-500 hover:text-gray-900 dark:hover:text-white">
                             <Leetcode/>
                         </a>
                     </li>
                     <li>
-                        <a href="#" title={"Hackerrank"} target="_blank"
+                        <a href="https://www.hackerrank.com/profile/kamalsingh_hr/" title={"Hackerrank"} target="_blank"
                            rel="noopener noreferrer"
                            className="text-gray-500 hover:text-gray-900 dark:hover:text-white">
                             <Hackerrank/>
